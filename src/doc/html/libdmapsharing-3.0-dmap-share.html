@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dmap-share</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="libdmapsharing-3.0-DMAPMdnsBrowser.html" title="DMAPMdnsBrowser">
+<link rel="next" href="libdmapsharing-3.0-DMAPRecord.html" title="DMAPRecord">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libdmapsharing-3.0-DMAPMdnsBrowser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-DMAPRecord.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-dmap-share.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-dmap-share.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-dmap-share"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-dmap-share.top_of_page"></a>dmap-share</span></h2>
+<p>dmap-share</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-dmap-share.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="libdmapsharing-3.0-dmap-share.html#DMAPMetaDataMap" title="DMAPMetaDataMap">DMAPMetaDataMap</a>;
+#define             <a class="link" href="libdmapsharing-3.0-dmap-share.html#DMAP-STATUS-OK:CAPS" title="DMAP_STATUS_OK">DMAP_STATUS_OK</a>
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#add-entry-to-mlcl" title="add_entry_to_mlcl ()">*add_entry_to_mlcl</a>)                (<em class="parameter"><code><span class="type">gpointer</span> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> mb</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#content-codes" title="content_codes ()">*content_codes</a>)                    (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#ctrl-int" title="ctrl_int ()">*ctrl_int</a>)                         (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#databases" title="databases ()">*databases</a>)                        (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#databases-browse-xxx" title="databases_browse_xxx ()">*databases_browse_xxx</a>)             (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#databases-items-xxx" title="databases_items_xxx ()">*databases_items_xxx</a>)              (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-dmap-share.html#dmap-share-free-filter" title="dmap_share_free_filter ()">dmap_share_free_filter</a>              (<em class="parameter"><code><span class="type">GSList</span> *filter</code></em>);
+<span class="returnvalue">guint</span>               (<a class="link" href="libdmapsharing-3.0-dmap-share.html#get-desired-port" title="get_desired_port ()">*get_desired_port</a>)                 (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="libdmapsharing-3.0-dmap-share.html#get-type-of-service" title="get_type_of_service ()">*get_type_of_service</a>)              (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#login" title="login ()">*login</a>)                            (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#logout" title="logout ()">*logout</a>)                           (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#message-add-standard-headers" title="message_add_standard_headers ()">*message_add_standard_headers</a>)     (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#name-collision" title="name_collision ()">*name_collision</a>)                   (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><span class="type">DMAPMdnsPublisher</span> *publisher</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#published" title="published ()">*published</a>)                        (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><span class="type">DMAPMdnsPublisher</span> *publisher</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#server-info" title="server_info ()">*server_info</a>)                      (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-share.html#update" title="update ()">*update</a>)                           (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dmap-share.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dmap-share.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DMAPMetaDataMap"></a><h3>DMAPMetaDataMap</h3>
+<pre class="programlisting">typedef struct _DMAPMetaDataMap DMAPMetaDataMap;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAP-STATUS-OK:CAPS"></a><h3>DMAP_STATUS_OK</h3>
+<pre class="programlisting">#define DMAP_STATUS_OK 200
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="add-entry-to-mlcl"></a><h3>add_entry_to_mlcl ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*add_entry_to_mlcl)                (<em class="parameter"><code><span class="type">gpointer</span> id</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> mb</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="content-codes"></a><h3>content_codes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*content_codes)                    (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ctrl-int"></a><h3>ctrl_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ctrl_int)                         (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="databases"></a><h3>databases ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*databases)                        (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="databases-browse-xxx"></a><h3>databases_browse_xxx ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*databases_browse_xxx)             (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="databases-items-xxx"></a><h3>databases_items_xxx ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*databases_items_xxx)              (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-share-free-filter"></a><h3>dmap_share_free_filter ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dmap_share_free_filter              (<em class="parameter"><code><span class="type">GSList</span> *filter</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="get-desired-port"></a><h3>get_desired_port ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               (*get_desired_port)                 (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="get-type-of-service"></a><h3>get_type_of_service ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*get_type_of_service)              (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="login"></a><h3>login ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*login)                            (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="logout"></a><h3>logout ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*logout)                           (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="message-add-standard-headers"></a><h3>message_add_standard_headers ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*message_add_standard_headers)     (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="name-collision"></a><h3>name_collision ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*name_collision)                   (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><span class="type">DMAPMdnsPublisher</span> *publisher</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="published"></a><h3>published ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*published)                        (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><span class="type">DMAPMdnsPublisher</span> *publisher</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="server-info"></a><h3>server_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*server_info)                      (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="update"></a><h3>update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*update)                           (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

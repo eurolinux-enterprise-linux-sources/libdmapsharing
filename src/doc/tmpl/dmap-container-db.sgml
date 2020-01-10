@@ -1,0 +1,71 @@
+<!-- ##### SECTION Title ##### -->
+DMAPContainerDb
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT DMAPContainerDbIface ##### -->
+<para>
+
+</para>
+
+@parent: 
+@add: 
+@lookup_by_id: 
+@foreach: 
+@count: 
+
+<!-- ##### FUNCTION dmap_container_db_add ##### -->
+<para>
+
+</para>
+
+@db: 
+@record: 
+
+
+<!-- ##### FUNCTION dmap_container_db_count ##### -->
+<para>
+
+</para>
+
+@db: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_container_db_foreach ##### -->
+<para>
+
+</para>
+
+@db: 
+@func: 
+@data: 
+
+
+<!-- ##### FUNCTION dmap_container_db_lookup_by_id ##### -->
+<para>
+
+</para>
+
+@db: 
+@id: 
+@Returns: 
+
+

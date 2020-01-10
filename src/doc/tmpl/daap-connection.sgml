@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+daap-connection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### FUNCTION daap_connection_new ##### -->
+<para>
+
+</para>
+
+@name: 
+@host: 
+@port: 
+@db: 
+@factory: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_test_daap_connection_suite ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

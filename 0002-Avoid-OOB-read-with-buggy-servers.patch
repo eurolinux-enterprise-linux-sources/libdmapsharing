@@ -1,0 +1,39 @@
+From 3e347fd3e8e7e20afc562268f27fd3c2b79f4d0e Mon Sep 17 00:00:00 2001
+From: Bastien Nocera <hadess@hadess.net>
+Date: Tue, 29 Oct 2013 11:37:15 +0100
+Subject: [PATCH 2/3] Avoid OOB read with buggy servers
+
+If the server doesn't start the Content-Range field with "bytes="
+we would have an out-of-bounds read trying to parse the content
+of that field. Fall back to a 0 offset when a parsing error occurs.
+
+See https://bugzilla.redhat.com/show_bug.cgi?id=1024020
+
+https://bugzilla.gnome.org/show_bug.cgi?id=711063
+---
+ libdmapsharing/daap-share.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/libdmapsharing/daap-share.c b/libdmapsharing/daap-share.c
+index 66cdfe6..e182055 100644
+--- a/libdmapsharing/daap-share.c
++++ b/libdmapsharing/daap-share.c
+@@ -922,8 +922,13 @@ databases_items_xxx (DMAPShare * share,
+ 		const gchar *s;
+ 		gchar *content_range;
+ 
+-		s = range_header + strlen ("bytes=");	/* bytes= */
+-		offset = atoll (s);
++		if (!g_ascii_strncasecmp (range_header, "bytes=", strlen("bytes="))) {
++			/* Not starting with "bytes=" ? */
++			offset = 0;
++		} else {
++			s = range_header + strlen ("bytes=");	/* bytes= */
++			offset = atoll (s);
++		}
+ 
+ 		content_range =
+ 			g_strdup_printf ("bytes %" G_GUINT64_FORMAT "-%"
+-- 
+1.8.3.1
+

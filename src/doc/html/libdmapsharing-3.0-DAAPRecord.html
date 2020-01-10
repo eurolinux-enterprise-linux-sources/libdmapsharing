@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DAAPRecord</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="next" href="libdmapsharing-3.0-daap-share.html" title="daap-share">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-daap-share.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-DAAPRecord.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DAAPRecord.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-DAAPRecord"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-DAAPRecord.top_of_page"></a>DAAPRecord</span></h2>
+<p>DAAPRecord</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-DAAPRecord.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="libdmapsharing-3.0-DAAPRecord.html#DAAPRecordIface" title="struct DAAPRecordIface">DAAPRecordIface</a>;
+<span class="returnvalue">gint</span>                <a class="link" href="libdmapsharing-3.0-DAAPRecord.html#daap-record-cmp-by-album" title="daap_record_cmp_by_album ()">daap_record_cmp_by_album</a>            (<em class="parameter"><code><span class="type">gpointer</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> b</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPDb.html"><span class="type">DMAPDb</span></a> *db</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libdmapsharing-3.0-DAAPRecord.html#daap-record-itunes-compat" title="daap_record_itunes_compat ()">daap_record_itunes_compat</a>           (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DAAPRecord.html"><span class="type">DAAPRecord</span></a> *record</code></em>);
+<span class="returnvalue">GInputStream</span> *      <a class="link" href="libdmapsharing-3.0-DAAPRecord.html#daap-record-read" title="daap_record_read ()">daap_record_read</a>                    (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DAAPRecord.html"><span class="type">DAAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DAAPRecord.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DAAPRecord.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DAAPRecordIface"></a><h3>struct DAAPRecordIface</h3>
+<pre class="programlisting">struct DAAPRecordIface {
+	GTypeInterface parent;
+
+	  gboolean (*itunes_compat) (DAAPRecord * record);
+	GInputStream *(*read) (DAAPRecord * record, GError ** err);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="daap-record-cmp-by-album"></a><h3>daap_record_cmp_by_album ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                daap_record_cmp_by_album            (<em class="parameter"><code><span class="type">gpointer</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> b</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPDb.html"><span class="type">DMAPDb</span></a> *db</code></em>);</pre>
+<p>
+Compares the two records associated with the provided keys according
+to album. Suitable to sort lists of albums.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>first ID.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>second ID.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>db</code></em> :</span></p></td>
+<td>A DMAPDb for which a and b are valid ID's.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="daap-record-itunes-compat"></a><h3>daap_record_itunes_compat ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            daap_record_itunes_compat           (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DAAPRecord.html"><span class="type">DAAPRecord</span></a> *record</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DAAPRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if record is compatible with iTunes, else FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="daap-record-read"></a><h3>daap_record_read ()</h3>
+<pre class="programlisting"><span class="returnvalue">GInputStream</span> *      daap_record_read                    (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DAAPRecord.html"><span class="type">DAAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>a DAAPRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>a GError.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A GInputStream that provides read-only access to the data stream
+associated with record.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

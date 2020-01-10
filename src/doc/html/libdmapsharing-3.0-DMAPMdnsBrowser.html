@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DMAPMdnsBrowser</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="libdmapsharing-3.0-DMAPDb.html" title="DMAPDb">
+<link rel="next" href="libdmapsharing-3.0-dmap-share.html" title="dmap-share">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libdmapsharing-3.0-DMAPDb.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-dmap-share.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-DMAPMdnsBrowser.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DMAPMdnsBrowser.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DMAPMdnsBrowser.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-DMAPMdnsBrowser"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-DMAPMdnsBrowser.top_of_page"></a>DMAPMdnsBrowser</span></h2>
+<p>DMAPMdnsBrowser</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-DMAPMdnsBrowser.synopsis"></a><h2>Synopsis</h2>
+<a name="DMAPMdnsBrowserError"></a><a name="DMAPMdnsBrowserServiceType"></a><a name="DMAPMdnsBrowserTransportProtocol"></a><pre class="synopsis">struct              <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserClass" title="struct DMAPMdnsBrowserClass">DMAPMdnsBrowserClass</a>;
+enum                <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserError-enum" title="enum DMAPMdnsBrowserError">DMAPMdnsBrowserError</a>;
+struct              <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserService" title="struct DMAPMdnsBrowserService">DMAPMdnsBrowserService</a>;
+enum                <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType-enum" title="enum DMAPMdnsBrowserServiceType">DMAPMdnsBrowserServiceType</a>;
+enum                <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserTransportProtocol-enum" title="enum DMAPMdnsBrowserTransportProtocol">DMAPMdnsBrowserTransportProtocol</a>;
+#define             <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAP-MDNS-BROWSER-ERROR:CAPS" title="DMAP_MDNS_BROWSER_ERROR">DMAP_MDNS_BROWSER_ERROR</a>
+<span class="returnvalue">GQuark</span>              <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-error-quark" title="dmap_mdns_browser_error_quark ()">dmap_mdns_browser_error_quark</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType"><span class="returnvalue">DMAPMdnsBrowserServiceType</span></a> <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-service-type" title="dmap_mdns_browser_get_service_type ()">dmap_mdns_browser_get_service_type</a>
+                                                        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>);
+const <span class="returnvalue">GSList</span> *      <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-services" title="dmap_mdns_browser_get_services ()">dmap_mdns_browser_get_services</a>      (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>);
+<a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="returnvalue">DMAPMdnsBrowser</span></a> *   <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-new" title="dmap_mdns_browser_new ()">dmap_mdns_browser_new</a>               (<em class="parameter"><code><a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType"><span class="type">DMAPMdnsBrowserServiceType</span></a> type</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-start" title="dmap_mdns_browser_start ()">dmap_mdns_browser_start</a>             (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-stop" title="dmap_mdns_browser_stop ()">dmap_mdns_browser_stop</a>              (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPMdnsBrowser.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----DMAPMdnsBrowserError
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----DMAPMdnsBrowserServiceType
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----DMAPMdnsBrowserTransportProtocol
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPMdnsBrowser.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPMdnsBrowser.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DMAPMdnsBrowserClass"></a><h3>struct DMAPMdnsBrowserClass</h3>
+<pre class="programlisting">struct DMAPMdnsBrowserClass {
+	GObjectClass parent_class;
+
+	void (*service_added) (DMAPMdnsBrowser * browser,
+			       DMAPMdnsBrowserService * service);
+	void (*service_removed) (DMAPMdnsBrowser * browser,
+				 DMAPMdnsBrowserService * service);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPMdnsBrowserError-enum"></a><h3>enum DMAPMdnsBrowserError</h3>
+<pre class="programlisting">typedef enum {
+	DMAP_MDNS_BROWSER_ERROR_NOT_RUNNING = 0,
+	DMAP_MDNS_BROWSER_ERROR_FAILED,
+} DMAPMdnsBrowserError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPMdnsBrowserService"></a><h3>struct DMAPMdnsBrowserService</h3>
+<pre class="programlisting">struct DMAPMdnsBrowserService {
+	gchar *service_name;
+	gchar *name;
+	gchar *host;
+	guint port;
+	gboolean password_protected;
+	gchar *pair;                                         // FIXME: subclass
+	DMAPMdnsBrowserTransportProtocol transport_protocol; // FIXME: subclass
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPMdnsBrowserServiceType-enum"></a><h3>enum DMAPMdnsBrowserServiceType</h3>
+<pre class="programlisting">typedef enum {
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID = 0,
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP,
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP,
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP,
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP,
+	DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST = DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP
+} DMAPMdnsBrowserServiceType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPMdnsBrowserTransportProtocol-enum"></a><h3>enum DMAPMdnsBrowserTransportProtocol</h3>
+<pre class="programlisting">typedef enum {
+	DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP = 0,
+	DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP,
+	DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST = DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP
+} DMAPMdnsBrowserTransportProtocol;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAP-MDNS-BROWSER-ERROR:CAPS"></a><h3>DMAP_MDNS_BROWSER_ERROR</h3>
+<pre class="programlisting">#define DMAP_MDNS_BROWSER_ERROR dmap_mdns_browser_error_quark ()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-error-quark"></a><h3>dmap_mdns_browser_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              dmap_mdns_browser_error_quark       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-get-service-type"></a><h3>dmap_mdns_browser_get_service_type ()</h3>
+<pre class="programlisting"><a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType"><span class="returnvalue">DMAPMdnsBrowserServiceType</span></a> dmap_mdns_browser_get_service_type
+                                                        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-get-services"></a><h3>dmap_mdns_browser_get_services ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GSList</span> *      dmap_mdns_browser_get_services      (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-new"></a><h3>dmap_mdns_browser_new ()</h3>
+<pre class="programlisting"><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="returnvalue">DMAPMdnsBrowser</span></a> *   dmap_mdns_browser_new               (<em class="parameter"><code><a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType"><span class="type">DMAPMdnsBrowserServiceType</span></a> type</code></em>);</pre>
+<p>
+Creates a new mDNS browser.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>The type of service to browse.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a pointer to a DMAPMdnsBrowser.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-start"></a><h3>dmap_mdns_browser_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            dmap_mdns_browser_start             (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Starts a DMAPMdnsBrowser.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>browser</code></em> :</span></p></td>
+<td>A DMAPMdnsBrowser.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A GError.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE on success, else FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-mdns-browser-stop"></a><h3>dmap_mdns_browser_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            dmap_mdns_browser_stop              (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPMdnsBrowser.html"><span class="type">DMAPMdnsBrowser</span></a> *browser</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Stops a DMAPMdnsBrowser.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>browser</code></em> :</span></p></td>
+<td>A DMAPMdnsBrowser.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A GError.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE on success, else FALSE.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

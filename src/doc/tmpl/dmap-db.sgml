@@ -1,0 +1,125 @@
+<!-- ##### SECTION Title ##### -->
+DMAPDb
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT DMAPDbIface ##### -->
+<para>
+
+</para>
+
+@parent: 
+@add: 
+@add_with_id: 
+@add_path: 
+@lookup_by_id: 
+@lookup_id_by_location: 
+@foreach: 
+@count: 
+
+<!-- ##### USER_FUNCTION RecordGetValueFunc ##### -->
+<para>
+
+</para>
+
+@record: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_add ##### -->
+<para>
+
+</para>
+
+@db: 
+@record: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_add_path ##### -->
+<para>
+
+</para>
+
+@db: 
+@path: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_add_with_id ##### -->
+<para>
+
+</para>
+
+@db: 
+@record: 
+@id: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_apply_filter ##### -->
+<para>
+
+</para>
+
+@db: 
+@filter_def: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_count ##### -->
+<para>
+
+</para>
+
+@db: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_foreach ##### -->
+<para>
+
+</para>
+
+@db: 
+@func: 
+@data: 
+
+
+<!-- ##### FUNCTION dmap_db_lookup_by_id ##### -->
+<para>
+
+</para>
+
+@db: 
+@id: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_db_lookup_id_by_location ##### -->
+<para>
+
+</para>
+
+@db: 
+@location: 
+@Returns: 
+
+

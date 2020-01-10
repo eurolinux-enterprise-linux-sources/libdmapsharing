@@ -1,0 +1,49 @@
+<!-- ##### SECTION Title ##### -->
+dmap-gst-input-stream
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### FUNCTION dmap_gst_input_stream_new ##### -->
+<para>
+
+</para>
+
+@transcode_mimetype: 
+@src_stream: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmapd_input_stream_strdup_format_extension ##### -->
+<para>
+
+</para>
+
+@format_code: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION kill_pipeline ##### -->
+<para>
+
+</para>
+
+@Param1: 
+
+

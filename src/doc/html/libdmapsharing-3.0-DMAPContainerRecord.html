@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DMAPContainerRecord</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="libdmapsharing-3.0-DMAPContainerDb.html" title="DMAPContainerDb">
+<link rel="next" href="libdmapsharing-3.0-DMAPDb.html" title="DMAPDb">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libdmapsharing-3.0-DMAPContainerDb.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-DMAPDb.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-DMAPContainerRecord.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DMAPContainerRecord.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-DMAPContainerRecord"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-DMAPContainerRecord.top_of_page"></a>DMAPContainerRecord</span></h2>
+<p>DMAPContainerRecord</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-DMAPContainerRecord.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="libdmapsharing-3.0-DMAPContainerRecord.html#DMAPContainerRecordIface" title="struct DMAPContainerRecordIface">DMAPContainerRecordIface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-add-entry" title="dmap_container_record_add_entry ()">dmap_container_record_add_entry</a>     (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *container_record</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> id</code></em>);
+<a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPDb.html"><span class="returnvalue">DMAPDb</span></a> *            <a class="link" href="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entries" title="dmap_container_record_get_entries ()">dmap_container_record_get_entries</a>   (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);
+<span class="returnvalue">guint64</span>             <a class="link" href="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entry-count" title="dmap_container_record_get_entry_count ()">dmap_container_record_get_entry_count</a>
+                                                        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-id" title="dmap_container_record_get_id ()">dmap_container_record_get_id</a>        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPContainerRecord.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPContainerRecord.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DMAPContainerRecordIface"></a><h3>struct DMAPContainerRecordIface</h3>
+<pre class="programlisting">struct DMAPContainerRecordIface {
+	GTypeInterface parent;
+
+	  guint (*get_id) (DMAPContainerRecord * record);
+
+	void (*add_entry) (DMAPContainerRecord * container_record,
+			   DMAPRecord * record, gint id);
+
+	  guint64 (*get_entry_count) (DMAPContainerRecord * record);
+
+	DMAPDb *(*get_entries) (DMAPContainerRecord * record);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-container-record-add-entry"></a><h3>dmap_container_record_add_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dmap_container_record_add_entry     (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *container_record</code></em>,
+                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> id</code></em>);</pre>
+<p>
+Add a record to the database. It is assumed that the record is placed
+directly into the database (not copied) and not freed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container_record</code></em> :</span></p></td>
+<td>A DMAPContainerRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DMAPRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The record's ID.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-container-record-get-entries"></a><h3>dmap_container_record_get_entries ()</h3>
+<pre class="programlisting"><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPDb.html"><span class="returnvalue">DMAPDb</span></a> *            dmap_container_record_get_entries   (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DMAPContainerRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A pointer to a DMAPDb containing the entries contained in record.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-container-record-get-entry-count"></a><h3>dmap_container_record_get_entry_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint64</span>             dmap_container_record_get_entry_count
+                                                        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DMAPContainerRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of records in the container record.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-container-record-get-id"></a><h3>dmap_container_record_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               dmap_container_record_get_id        (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPContainerRecord.html"><span class="type">DMAPContainerRecord</span></a> *record</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DMAPContainerRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the ID for the given record.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

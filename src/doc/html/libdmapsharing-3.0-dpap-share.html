@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>dpap-share</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="libdmapsharing-3.0-DPAPRecord.html" title="DPAPRecord">
+<link rel="next" href="libdmapsharing-3.0-dacp-share.html" title="dacp-share">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libdmapsharing-3.0-DPAPRecord.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-dacp-share.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-dpap-share.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-dpap-share.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-dpap-share"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-dpap-share.top_of_page"></a>dpap-share</span></h2>
+<p>dpap-share</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-dpap-share.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">DPAPShare</span> *         <a class="link" href="libdmapsharing-3.0-dpap-share.html#dpap-share-new" title="dpap_share_new ()">dpap_share_new</a>                      (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *password</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> db</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> container_db</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *transcode_mimetype</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dpap-share.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dpap-share.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="dpap-share-new"></a><h3>dpap_share_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">DPAPShare</span> *         dpap_share_new                      (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *password</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> db</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> container_db</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *transcode_mimetype</code></em>);</pre>
+<p>
+Creates a new DPAP share and publishes it using mDNS.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name that will be published by mDNS.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>password</code></em> :</span></p></td>
+<td>A share password or NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>db</code></em> :</span></p></td>
+<td>A media database.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container_db</code></em> :</span></p></td>
+<td>A container (album) database.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>transcode_mimetype</code></em> :</span></p></td>
+<td>A transcode mimetype or NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a pointer to a DPAPShare.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

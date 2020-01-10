@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DMAPRecord</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
+<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
+<link rel="prev" href="libdmapsharing-3.0-dmap-share.html" title="dmap-share">
+<link rel="next" href="libdmapsharing-3.0-DMAPRecordFactory.html" title="DMAPRecordFactory">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libdmapsharing-3.0-dmap-share.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libdmapsharing Reference Manual</th>
+<td><a accesskey="n" href="libdmapsharing-3.0-DMAPRecordFactory.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libdmapsharing-3.0-DMAPRecord.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DMAPRecord.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libdmapsharing-3.0-DMAPRecord.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libdmapsharing-3.0-DMAPRecord"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libdmapsharing-3.0-DMAPRecord.top_of_page"></a>DMAPRecord</span></h2>
+<p>DMAPRecord</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libdmapsharing-3.0-DMAPRecord.synopsis"></a><h2>Synopsis</h2>
+<a name="DMAPMediaKind"></a><pre class="synopsis">enum                <a class="link" href="libdmapsharing-3.0-DMAPRecord.html#DMAPMediaKind-enum" title="enum DMAPMediaKind">DMAPMediaKind</a>;
+struct              <a class="link" href="libdmapsharing-3.0-DMAPRecord.html#DMAPRecordIface" title="struct DMAPRecordIface">DMAPRecordIface</a>;
+typedef             <a class="link" href="libdmapsharing-3.0-DMAPRecord.html#bitwise" title="bitwise">bitwise</a>;
+<a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="returnvalue">DMAPRecord</span></a> *        <a class="link" href="libdmapsharing-3.0-DMAPRecord.html#dmap-record-set-from-blob" title="dmap_record_set_from_blob ()">dmap_record_set_from_blob</a>           (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">GByteArray</span> *blob</code></em>);
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="libdmapsharing-3.0-DMAPRecord.html#dmap-record-to-blob" title="dmap_record_to_blob ()">dmap_record_to_blob</a>                 (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPRecord.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----DMAPMediaKind
+</pre>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPRecord.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-DMAPRecord.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DMAPMediaKind-enum"></a><h3>enum DMAPMediaKind</h3>
+<pre class="programlisting">typedef enum {
+	DMAP_MEDIA_KIND_MUSIC = 1,
+	DMAP_MEDIA_KIND_MOVIE = 2,
+	DMAP_MEDIA_KIND_PODCAST = 32,
+	DMAP_MEDIA_KIND_TV_SHOW = 64 
+} DMAPMediaKind;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPRecordIface"></a><h3>struct DMAPRecordIface</h3>
+<pre class="programlisting">struct DMAPRecordIface {
+	GTypeInterface parent;
+
+	GByteArray *(*to_blob) (DMAPRecord * record);
+	DMAPRecord *(*set_from_blob) (DMAPRecord * record, GByteArray * blob);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bitwise"></a><h3>bitwise</h3>
+<pre class="programlisting">typedef unsigned long long bitwise;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-record-set-from-blob"></a><h3>dmap_record_set_from_blob ()</h3>
+<pre class="programlisting"><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="returnvalue">DMAPRecord</span></a> *        dmap_record_set_from_blob           (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>,
+                                                         <em class="parameter"><code><span class="type">GByteArray</span> *blob</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-record-to-blob"></a><h3>dmap_record_to_blob ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        dmap_record_to_blob                 (<em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="type">DMAPRecord</span></a> *record</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record</code></em> :</span></p></td>
+<td>A DMAPRecord.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A byte array representation of the record.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>
