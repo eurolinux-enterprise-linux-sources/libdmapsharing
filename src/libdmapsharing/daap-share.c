@@ -36,6 +36,7 @@
 
 #include <libdmapsharing/dmap.h>
 #include <libdmapsharing/dmap-structure.h>
+#include <libdmapsharing/dmap-private-utils.h>
 #include <libdmapsharing/dmap-utils.h>
 
 #ifdef HAVE_GSTREAMERAPP
@@ -154,19 +155,6 @@ daap_share_dispose (GObject * object)
 	/* FIXME: implement in parent */
 }
 
-static gchar *
-mime_to_format (const gchar * transcode_mimetype)
-{
-	if (!transcode_mimetype) {
-		return NULL;
-	} else if (!strcmp (transcode_mimetype, "audio/wav")) {
-		return g_strdup ("wav");
-	} else if (!strcmp (transcode_mimetype, "audio/mp3")) {
-		return g_strdup ("mp3");
-	} else
-		return NULL;
-}
-
 DAAPShare *
 daap_share_new (const char *name,
 		const char *password,
@@ -197,7 +185,7 @@ daap_share_message_add_standard_headers (DMAPShare * share,
 					 SoupMessage * message)
 {
 	soup_message_headers_append (message->response_headers, "DMAP-Server",
-				     "libdmapsharing" VERSION);
+				     "libdmapsharing" "VERSION");
 }
 
 #define DMAP_VERSION 2.0
@@ -385,19 +373,59 @@ static struct DMAPMetaDataMap meta_data_map[] = {
 #define DAAP_ITEM_KIND_AUDIO 2
 #define DAAP_SONG_DATA_KIND_NONE 0
 
+static gboolean should_transcode (const gchar *format, const gboolean has_video, const gchar *transcode_mimetype)
+{
+	gboolean fnval = FALSE;
+	char *format2 = NULL;
+
+	// Not presently transcoding videos (see also same comments elsewhere).
+	if (TRUE == has_video) {
+		goto done;
+	}
+
+	if (NULL == transcode_mimetype) {
+		goto done;
+	}
+
+	format2 = dmap_mime_to_format (transcode_mimetype);
+	if (NULL == format2) {
+		g_warning ("Configured to transcode, but target format is bad");
+		goto done;
+	}
+
+	if (strcmp (format, format2)) {
+		fnval = TRUE;
+	}
+
+done:
+	g_debug ("    Should%s transcode %s to %s", fnval ? "" : " not", format, format2 ? format2 : "[no target format]");
+
+	return fnval;
+}
+
 static void
 send_chunked_file (SoupServer * server, SoupMessage * message,
 		   DAAPRecord * record, guint64 filesize, guint64 offset,
 		   const gchar * transcode_mimetype)
 {
 	gchar *format = NULL;
-	GInputStream *stream;
+	gchar *location = NULL;
+	GInputStream *stream = NULL;
 	gboolean has_video;
-	const char *location;
 	GError *error = NULL;
-	ChunkData *cd = g_new (ChunkData, 1);
+	ChunkData *cd = NULL;
+
+	cd = g_new (ChunkData, 1);
+	if (NULL == cd) {
+		g_warning ("Error allocating chunk\n");
+		goto _error;
+	}
 
 	g_object_get (record, "location", &location, "has-video", &has_video, NULL);
+	if (NULL == location) {
+		g_warning ("Error getting location from record\n");
+		goto _error;
+	}
 
 	/* FIXME: This crashes on powerpc-440fp-linux-gnu:
 	 * g_debug ("Sending %s chunked from offset %" G_GUINT64_FORMAT ".", location, offset);
@@ -406,52 +434,39 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 	cd->server = server;
 
 	stream = G_INPUT_STREAM (daap_record_read (record, &error));
-
 	if (error != NULL) {
 		g_warning ("Couldn't open %s: %s.", location, error->message);
-		g_error_free (error);
-		soup_message_set_status (message,
-					 SOUP_STATUS_INTERNAL_SERVER_ERROR);
-		g_free (cd);
-		return;
+		goto _error;
 	}
 
 	g_object_get (record, "format", &format, NULL);
+	if (NULL == format) {
+		g_warning ("Error getting format from record\n");
+		goto _error;
+	}
+
 	// Not presently transcoding videos (see also same comments elsewhere).
-	if (has_video || transcode_mimetype == NULL
-	    || !strcmp (format, mime_to_format (transcode_mimetype))) {
-		g_debug ("Not transcoding");
-		cd->stream = stream;
+	if (should_transcode (format, has_video, transcode_mimetype)) {
 #ifdef HAVE_GSTREAMERAPP
-	} else {
-		cd->stream =
-			dmap_gst_input_stream_new (transcode_mimetype,
-						   stream);
-	}
+		cd->stream = dmap_gst_input_stream_new (transcode_mimetype, stream);
 #else
+		g_warning ("Transcode format %s not supported", transcode_mimetype);
+		cd->stream = stream;
+#endif /* HAVE_GSTREAMERAPP */
 	} else {
-		g_warning ("Transcode format %s not supported",
-			   transcode_mimetype);
+		g_debug ("Not transcoding %s", location);
 		cd->stream = stream;
 	}
-#endif /* HAVE_GSTREAMERAPP */
 
 	if (cd->stream == NULL) {
 		g_warning ("Could not set up input stream");
-		g_free (cd);
-		return;
+		goto _error;
 	}
 
 	if (offset != 0) {
-		if (g_seekable_seek
-		    (G_SEEKABLE (cd->stream), offset, G_SEEK_SET, NULL,
-		     &error) == FALSE) {
+		if (g_seekable_seek (G_SEEKABLE (cd->stream), offset, G_SEEK_SET, NULL, &error) == FALSE) {
 			g_warning ("Error seeking: %s.", error->message);
-			g_input_stream_close (cd->stream, NULL, NULL);
-			soup_message_set_status (message,
-						 SOUP_STATUS_INTERNAL_SERVER_ERROR);
-			g_free (cd);
-			return;
+			goto _error;
 		}
 		filesize -= offset;
 	}
@@ -459,42 +474,34 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 	/* Free memory after each chunk sent out over network. */
 	soup_message_body_set_accumulate (message->response_body, FALSE);
 
-	// Not presently transcoding videos (see also same comments elsewhere).
-	if (has_video
-	    /* NOTE: iTunes seems to require this or it stops reading 
-	     * video data after about 2.5MB. Perhaps this is so iTunes
-	     * knows how much data to buffer.
-	     */
-	    || transcode_mimetype == NULL) {
-		/* NOTE: iTunes 8 (and other versions?) will not seek
-		 * properly without a Content-Length header.
-		 */
+	if (! should_transcode (format, has_video, transcode_mimetype)) {
+	        /* NOTE: iTunes seems to require this or it stops reading 
+	         * video data after about 2.5MB. Perhaps this is so iTunes
+	         * knows how much data to buffer.
+	         */
 		g_debug ("Using HTTP 1.1 content length encoding.");
-		soup_message_headers_set_encoding (message->response_headers,
-						   SOUP_ENCODING_CONTENT_LENGTH);
-		g_debug ("Content length is %" G_GUINT64_FORMAT ".",
-			 filesize);
-		soup_message_headers_set_content_length
-			(message->response_headers, filesize);
+		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_CONTENT_LENGTH);
+
+	        /* NOTE: iTunes 8 (and other versions?) will not seek
+	         * properly without a Content-Length header.
+	         */
+		g_debug ("Content length is %" G_GUINT64_FORMAT ".", filesize);
+		soup_message_headers_set_content_length (message->response_headers, filesize);
 	} else if (soup_message_get_http_version (message) == SOUP_HTTP_1_0) {
 		/* NOTE: Roku clients support only HTTP 1.0. */
 #ifdef HAVE_ENCODING_EOF
 		g_debug ("Using HTTP 1.0 encoding.");
-		soup_message_headers_set_encoding (message->response_headers,
-						   SOUP_ENCODING_EOF);
+		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_EOF);
 #else
-		g_warning
-			("Received HTTP 1.0 request, but not built with HTTP 1.0 support");
-		soup_message_headers_set_encoding (message->response_headers,
-						   SOUP_ENCODING_CHUNKED);
+		g_warning ("Received HTTP 1.0 request, but not built with HTTP 1.0 support");
+		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_CHUNKED);
 #endif
 	} else {
 		/* NOTE: Can not provide Content-Length when performing
 		 * real-time transcoding.
 		 */
 		g_debug ("Using HTTP 1.1 chunked encoding.");
-		soup_message_headers_set_encoding (message->response_headers,
-						   SOUP_ENCODING_CHUNKED);
+		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_CHUNKED);
 	}
 
 	soup_message_headers_append (message->response_headers, "Connection",
@@ -510,6 +517,36 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 	g_signal_connect (message, "finished",
 			  G_CALLBACK (dmap_chunked_message_finished), cd);
 	/* NOTE: cd g_free'd by chunked_message_finished(). */
+
+	return;
+_error:
+	soup_message_set_status (message, SOUP_STATUS_INTERNAL_SERVER_ERROR);
+
+	if (NULL != cd) {
+		g_free (cd);
+	}
+
+	if (NULL != format) {
+		g_free (format);
+	}
+
+	if (NULL != location) {
+		g_free (location);
+	}
+
+	if (NULL != error) {
+		g_error_free (error);
+	}
+	
+	if (NULL != cd->stream) {
+		g_input_stream_close (cd->stream, NULL, NULL);
+	}
+	
+	if (NULL != stream) {
+		g_input_stream_close (stream, NULL, NULL);
+	}
+
+	return;
 }
 
 static void
@@ -621,7 +658,7 @@ add_entry_to_mlcl (gpointer id, DMAPRecord * record, gpointer _mb)
 			      &transcode_mimetype, NULL);
 		// Not presently transcoding videos (see also same comments elsewhere).
 		if (! has_video && transcode_mimetype) {
-			format = g_strdup (mime_to_format
+			format = g_strdup (dmap_mime_to_format
 					   (transcode_mimetype));
 			g_free (transcode_mimetype);
 		} else {
@@ -885,8 +922,13 @@ databases_items_xxx (DMAPShare * share,
 		const gchar *s;
 		gchar *content_range;
 
-		s = range_header + 6;	/* bytes= */
-		offset = atoll (s);
+		if (!g_str_has_prefix (range_header, "bytes=")) {
+			/* Not starting with "bytes=" ? */
+			offset = 0;
+		} else {
+			s = range_header + strlen ("bytes=");	/* bytes= */
+			offset = atoll (s);
+		}
 
 		content_range =
 			g_strdup_printf ("bytes %" G_GUINT64_FORMAT "-%"

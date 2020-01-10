@@ -22,38 +22,17 @@
 
 #include "dmap-utils.h"
 
-#define DMAP_SHARE_CHUNK_SIZE 16384
-
-void
-dmap_write_next_chunk (SoupMessage * message, ChunkData * cd)
+gchar *
+dmap_mime_to_format (const gchar * transcode_mimetype)
 {
-	gssize read_size;
-	GError *error = NULL;
-	gchar *chunk = g_malloc (DMAP_SHARE_CHUNK_SIZE);
-
-	read_size = g_input_stream_read (cd->stream,
-					 chunk,
-					 DMAP_SHARE_CHUNK_SIZE, NULL, &error);
-	if (read_size > 0) {
-		soup_message_body_append (message->response_body,
-					  SOUP_MEMORY_TAKE, chunk, read_size);
-	} else {
-		if (error != NULL) {
-			g_warning ("Error reading from input stream: %s",
-				   error->message);
-			g_error_free (error);
-		}
-		g_free (chunk);
-		g_debug ("Wrote 0 bytes, sending message complete.");
-		soup_message_body_complete (message->response_body);
-	}
-	soup_server_unpause_message (cd->server, message);
-}
-
-void
-dmap_chunked_message_finished (SoupMessage * message, ChunkData * cd)
-{
-	g_debug ("Finished sending chunked file.");
-	g_input_stream_close (cd->stream, NULL, NULL);
-	g_free (cd);
+        if (!transcode_mimetype) {
+                return NULL;
+        } else if (!strcmp (transcode_mimetype, "audio/wav")) {
+                return g_strdup ("wav");
+        } else if (!strcmp (transcode_mimetype, "audio/mp3")) {
+                return g_strdup ("mp3");
+        } else if (!strcmp (transcode_mimetype, "video/quicktime")) {
+                return g_strdup ("mp4");
+        } else
+                return NULL;
 }

@@ -20,14 +20,26 @@ DMAPMdnsBrowser
 <!-- ##### SECTION Image ##### -->
 
 
-<!-- ##### STRUCT DMAPMdnsBrowserClass ##### -->
+<!-- ##### ENUM DMAPMdnsBrowserServiceType ##### -->
 <para>
 
 </para>
 
-@parent_class: 
-@service_added: 
-@service_removed: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP: 
+@DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST: 
+
+<!-- ##### ENUM DMAPMdnsBrowserTransportProtocol ##### -->
+<para>
+
+</para>
+
+@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP: 
+@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP: 
+@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST: 
 
 <!-- ##### ENUM DMAPMdnsBrowserError ##### -->
 <para>
@@ -50,26 +62,14 @@ DMAPMdnsBrowser
 @pair: 
 @transport_protocol: 
 
-<!-- ##### ENUM DMAPMdnsBrowserServiceType ##### -->
+<!-- ##### STRUCT DMAPMdnsBrowserClass ##### -->
 <para>
 
 </para>
 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_INVALID: 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_DAAP: 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_DPAP: 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_DACP: 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_RAOP: 
-@DMAP_MDNS_BROWSER_SERVICE_TYPE_LAST: 
-
-<!-- ##### ENUM DMAPMdnsBrowserTransportProtocol ##### -->
-<para>
-
-</para>
-
-@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_TCP: 
-@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_UDP: 
-@DMAP_MDNS_BROWSER_TRANSPORT_PROTOCOL_LAST: 
+@parent_class: 
+@service_added: 
+@service_removed: 
 
 <!-- ##### MACRO DMAP_MDNS_BROWSER_ERROR ##### -->
 <para>
@@ -84,24 +84,6 @@ DMAPMdnsBrowser
 </para>
 
 @void: 
-@Returns: 
-
-
-<!-- ##### FUNCTION dmap_mdns_browser_get_service_type ##### -->
-<para>
-
-</para>
-
-@browser: 
-@Returns: 
-
-
-<!-- ##### FUNCTION dmap_mdns_browser_get_services ##### -->
-<para>
-
-</para>
-
-@browser: 
 @Returns: 
 
 
@@ -131,6 +113,24 @@ DMAPMdnsBrowser
 
 @browser: 
 @error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_mdns_browser_get_services ##### -->
+<para>
+
+</para>
+
+@browser: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_mdns_browser_get_service_type ##### -->
+<para>
+
+</para>
+
+@browser: 
 @Returns: 
 
 

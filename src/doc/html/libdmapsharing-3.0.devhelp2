@@ -1,139 +1,151 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
-<book xmlns="http://www.devhelp.net/book" title="libdmapsharing Reference Manual" link="index.html" author="" name="libdmapsharing-3.0" version="2" language="c">
+<book xmlns="http://www.devhelp.net/book" title="libdmapsharing-3.0 Reference Manual" link="index.html" author="" name="libdmapsharing-3.0" version="2" language="c">
   <chapters>
-    <sub name="Libdmapsharing Sharing Overview" link="ch01.html">
-      <sub name="Media Database Implementation" link="mediadb.html"/>
-      <sub name="Container Database Implementation" link="containerdb.html"/>
-      <sub name="Share API" link="shareapi.html"/>
-    </sub>
-    <sub name="Libdmapsharing Browsing Overview" link="ch02.html">
-      <sub name="Media Database Implementation" link="mediadb.html"/>
-      <sub name="Container Database Implementation" link="containerdb.html"/>
-      <sub name="mDNS Browser API" link="browserapi.html"/>
-      <sub name="Service Added Callback" link="serviceaddedcb.html"/>
-      <sub name="Connected Callback" link="connectedcb.html"/>
-    </sub>
-    <sub name="Libdmapsharing Internals" link="ch03.html">
-      <sub name="Libdmapsharing Coding Standards" link="coding-standards.html"/>
-      <sub name="Libdmapsharing Server Internals" link="server-internals.html"/>
-      <sub name="Libdmapsharing Client Internals" link="client-internals.html"/>
-    </sub>
-    <sub name="Libdmapsharing Objects and Interfaces" link="ch04.html">
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="daap-connection" link="libdmapsharing-3.0-daap-connection.html"/>
       <sub name="DAAPRecord" link="libdmapsharing-3.0-DAAPRecord.html"/>
       <sub name="daap-share" link="libdmapsharing-3.0-daap-share.html"/>
+      <sub name="dacp-connection" link="libdmapsharing-3.0-dacp-connection.html"/>
+      <sub name="DACPPlayer" link="libdmapsharing-3.0-DACPPlayer.html"/>
+      <sub name="dacp-share" link="libdmapsharing-3.0-dacp-share.html"/>
       <sub name="dmap-connection" link="libdmapsharing-3.0-dmap-connection.html"/>
       <sub name="DMAPContainerDb" link="libdmapsharing-3.0-DMAPContainerDb.html"/>
       <sub name="DMAPContainerRecord" link="libdmapsharing-3.0-DMAPContainerRecord.html"/>
       <sub name="DMAPDb" link="libdmapsharing-3.0-DMAPDb.html"/>
+      <sub name="dmap-enums" link="libdmapsharing-3.0-dmap-enums.html"/>
+      <sub name="dmap-gst-input-stream" link="libdmapsharing-3.0-dmap-gst-input-stream.html"/>
+      <sub name="dmap-gst-mp3-input-stream" link="libdmapsharing-3.0-dmap-gst-mp3-input-stream.html"/>
+      <sub name="dmap-gst-wav-input-stream" link="libdmapsharing-3.0-dmap-gst-wav-input-stream.html"/>
       <sub name="DMAPMdnsBrowser" link="libdmapsharing-3.0-DMAPMdnsBrowser.html"/>
-      <sub name="dmap-share" link="libdmapsharing-3.0-dmap-share.html"/>
       <sub name="DMAPRecord" link="libdmapsharing-3.0-DMAPRecord.html"/>
       <sub name="DMAPRecordFactory" link="libdmapsharing-3.0-DMAPRecordFactory.html"/>
+      <sub name="dmap-share" link="libdmapsharing-3.0-dmap-share.html"/>
       <sub name="dpap-connection" link="libdmapsharing-3.0-dpap-connection.html"/>
       <sub name="DPAPRecord" link="libdmapsharing-3.0-DPAPRecord.html"/>
       <sub name="dpap-share" link="libdmapsharing-3.0-dpap-share.html"/>
-      <sub name="dacp-share" link="libdmapsharing-3.0-dacp-share.html"/>
     </sub>
     <sub name="Object Hierarchy" link="object-tree.html"/>
     <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Index of deprecated API" link="deprecated-api-index.html"/>
   </chapters>
   <functions>
+    <keyword type="function" name="daap_connection_new ()" link="libdmapsharing-3.0-daap-connection.html#daap-connection-new"/>
+    <keyword type="function" name="dmap_test_daap_connection_suite ()" link="libdmapsharing-3.0-daap-connection.html#dmap-test-daap-connection-suite"/>
+    <keyword type="function" name="daap_record_itunes_compat ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-itunes-compat"/>
+    <keyword type="function" name="daap_record_read ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-read"/>
+    <keyword type="function" name="daap_record_cmp_by_album ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-cmp-by-album"/>
     <keyword type="struct" name="struct DAAPRecordIface" link="libdmapsharing-3.0-DAAPRecord.html#DAAPRecordIface"/>
-    <keyword type="function" name="daap_record_cmp_by_album ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-cmp-by-album"/>
-    <keyword type="function" name="daap_record_itunes_compat ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-itunes-compat"/>
-    <keyword type="function" name="daap_record_read ()" link="libdmapsharing-3.0-DAAPRecord.html#daap-record-read"/>
-    <keyword type="function" name="daap_share_new ()" link="libdmapsharing-3.0-daap-share.html#daap-share-new"/>
-    <keyword type="function" name="DMAPConnectionCallback ()" link="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback"/>
-    <keyword type="enum" name="enum DMAPConnectionState" link="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState-enum"/>
-    <keyword type="function" name="DMAPResponseHandler ()" link="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler"/>
-    <keyword type="function" name="authenticate ()" link="libdmapsharing-3.0-dmap-connection.html#authenticate"/>
-    <keyword type="function" name="connected ()" link="libdmapsharing-3.0-dmap-connection.html#connected"/>
-    <keyword type="function" name="connecting ()" link="libdmapsharing-3.0-dmap-connection.html#connecting"/>
-    <keyword type="function" name="disconnected ()" link="libdmapsharing-3.0-dmap-connection.html#disconnected"/>
-    <keyword type="function" name="dmap_connection_authenticate_message ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-authenticate-message"/>
-    <keyword type="function" name="dmap_connection_build_message ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-build-message"/>
-    <keyword type="function" name="dmap_connection_connect ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-connect"/>
-    <keyword type="function" name="dmap_connection_disconnect ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-disconnect"/>
-    <keyword type="function" name="dmap_connection_get ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get"/>
-    <keyword type="function" name="dmap_connection_get_headers ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-headers"/>
-    <keyword type="function" name="dmap_connection_get_playlists ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-playlists"/>
-    <keyword type="function" name="dmap_connection_is_connected ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-is-connected"/>
-    <keyword type="function" name="dmap_connection_setup ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-setup"/>
-    <keyword type="function" name="get_protocol_version_cc ()" link="libdmapsharing-3.0-dmap-connection.html#get-protocol-version-cc"/>
-    <keyword type="function" name="get_query_metadata ()" link="libdmapsharing-3.0-dmap-connection.html#get-query-metadata"/>
-    <keyword type="function" name="handle_mlcl ()" link="libdmapsharing-3.0-dmap-connection.html#handle-mlcl"/>
-    <keyword type="function" name="operation_done ()" link="libdmapsharing-3.0-dmap-connection.html#operation-done"/>
+    <keyword type="function" name="daap_share_new ()" link="libdmapsharing-3.0-daap-share.html#daap-share-new"/>
+    <keyword type="function" name="dacp_connection_new ()" link="libdmapsharing-3.0-dacp-connection.html#dacp-connection-new"/>
+    <keyword type="function" name="dacp_player_now_playing_record ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-now-playing-record"/>
+    <keyword type="function" name="dacp_player_now_playing_artwork ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-now-playing-artwork"/>
+    <keyword type="function" name="dacp_player_play_pause ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-play-pause"/>
+    <keyword type="function" name="dacp_player_pause ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-pause"/>
+    <keyword type="function" name="dacp_player_next_item ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-next-item"/>
+    <keyword type="function" name="dacp_player_prev_item ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-prev-item"/>
+    <keyword type="function" name="dacp_player_cue_clear ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-cue-clear"/>
+    <keyword type="function" name="dacp_player_cue_play ()" link="libdmapsharing-3.0-DACPPlayer.html#dacp-player-cue-play"/>
+    <keyword type="enum" name="enum DACPRepeatState" link="libdmapsharing-3.0-DACPPlayer.html#DACPRepeatState"/>
+    <keyword type="enum" name="enum DACPPlayState" link="libdmapsharing-3.0-DACPPlayer.html#DACPPlayState"/>
+    <keyword type="struct" name="struct DACPPlayerIface" link="libdmapsharing-3.0-DACPPlayer.html#DACPPlayerIface"/>
+    <keyword type="function" name="lookup_guid ()" link="libdmapsharing-3.0-dacp-share.html#lookup-guid"/>
+    <keyword type="function" name="add_guid ()" link="libdmapsharing-3.0-dacp-share.html#add-guid"/>
+    <keyword type="function" name="remote_found ()" link="libdmapsharing-3.0-dacp-share.html#remote-found"/>
+    <keyword type="function" name="remote_lost ()" link="libdmapsharing-3.0-dacp-share.html#remote-lost"/>
+    <keyword type="function" name="remote_paired ()" link="libdmapsharing-3.0-dacp-share.html#remote-paired"/>
+    <keyword type="function" name="dacp_share_new ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-new"/>
+    <keyword type="function" name="dacp_share_pair ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-pair"/>
+    <keyword type="function" name="dacp_share_start_lookup ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-start-lookup"/>
+    <keyword type="function" name="dacp_share_stop_lookup ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-stop-lookup"/>
+    <keyword type="function" name="dacp_share_player_updated ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-player-updated"/>
+    <keyword type="function" name="get_protocol_version_cc ()" link="libdmapsharing-3.0-dmap-connection.html#get-protocol-version-cc"/>
+    <keyword type="function" name="get_query_metadata ()" link="libdmapsharing-3.0-dmap-connection.html#get-query-metadata"/>
+    <keyword type="function" name="handle_mlcl ()" link="libdmapsharing-3.0-dmap-connection.html#handle-mlcl"/>
+    <keyword type="function" name="connected ()" link="libdmapsharing-3.0-dmap-connection.html#connected"/>
+    <keyword type="function" name="disconnected ()" link="libdmapsharing-3.0-dmap-connection.html#disconnected"/>
+    <keyword type="function" name="authenticate ()" link="libdmapsharing-3.0-dmap-connection.html#authenticate"/>
+    <keyword type="function" name="connecting ()" link="libdmapsharing-3.0-dmap-connection.html#connecting"/>
+    <keyword type="function" name="operation_done ()" link="libdmapsharing-3.0-dmap-connection.html#operation-done"/>
+    <keyword type="function" name="DMAPConnectionCallback ()" link="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback"/>
+    <keyword type="function" name="DMAPResponseHandler ()" link="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler"/>
+    <keyword type="function" name="dmap_connection_is_connected ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-is-connected"/>
+    <keyword type="function" name="dmap_connection_setup ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-setup"/>
+    <keyword type="function" name="dmap_connection_connect ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-connect"/>
+    <keyword type="function" name="dmap_connection_disconnect ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-disconnect"/>
+    <keyword type="function" name="dmap_connection_get_headers ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-headers"/>
+    <keyword type="function" name="dmap_connection_get_playlists ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-playlists"/>
+    <keyword type="function" name="dmap_connection_build_message ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-build-message"/>
+    <keyword type="function" name="dmap_connection_authenticate_message ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-authenticate-message"/>
+    <keyword type="function" name="dmap_connection_get ()" link="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get"/>
+    <keyword type="enum" name="enum DMAPConnectionState" link="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState"/>
+    <keyword type="function" name="dmap_container_db_add ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-add"/>
+    <keyword type="function" name="dmap_container_db_lookup_by_id ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-lookup-by-id"/>
+    <keyword type="function" name="dmap_container_db_foreach ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-foreach"/>
+    <keyword type="function" name="dmap_container_db_count ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-count"/>
     <keyword type="struct" name="struct DMAPContainerDbIface" link="libdmapsharing-3.0-DMAPContainerDb.html#DMAPContainerDbIface"/>
-    <keyword type="function" name="dmap_container_db_add ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-add"/>
-    <keyword type="function" name="dmap_container_db_count ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-count"/>
-    <keyword type="function" name="dmap_container_db_foreach ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-foreach"/>
-    <keyword type="function" name="dmap_container_db_lookup_by_id ()" link="libdmapsharing-3.0-DMAPContainerDb.html#dmap-container-db-lookup-by-id"/>
+    <keyword type="function" name="dmap_container_record_get_id ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-id"/>
+    <keyword type="function" name="dmap_container_record_add_entry ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-add-entry"/>
+    <keyword type="function" name="dmap_container_record_get_entry_count ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entry-count"/>
+    <keyword type="function" name="dmap_container_record_get_entries ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entries"/>
     <keyword type="struct" name="struct DMAPContainerRecordIface" link="libdmapsharing-3.0-DMAPContainerRecord.html#DMAPContainerRecordIface"/>
-    <keyword type="function" name="dmap_container_record_add_entry ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-add-entry"/>
-    <keyword type="function" name="dmap_container_record_get_entries ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entries"/>
-    <keyword type="function" name="dmap_container_record_get_entry_count ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-entry-count"/>
-    <keyword type="function" name="dmap_container_record_get_id ()" link="libdmapsharing-3.0-DMAPContainerRecord.html#dmap-container-record-get-id"/>
+    <keyword type="function" name="RecordGetValueFunc ()" link="libdmapsharing-3.0-DMAPDb.html#RecordGetValueFunc"/>
+    <keyword type="function" name="dmap_db_add ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add"/>
+    <keyword type="function" name="dmap_db_add_with_id ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add-with-id"/>
+    <keyword type="function" name="dmap_db_add_path ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add-path"/>
+    <keyword type="function" name="dmap_db_lookup_by_id ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-lookup-by-id"/>
+    <keyword type="function" name="dmap_db_lookup_id_by_location ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-lookup-id-by-location"/>
+    <keyword type="function" name="dmap_db_foreach ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-foreach"/>
+    <keyword type="function" name="dmap_db_count ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-count"/>
+    <keyword type="function" name="dmap_db_apply_filter ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-apply-filter"/>
     <keyword type="struct" name="struct DMAPDbIface" link="libdmapsharing-3.0-DMAPDb.html#DMAPDbIface"/>
-    <keyword type="function" name="RecordGetValueFunc ()" link="libdmapsharing-3.0-DMAPDb.html#RecordGetValueFunc"/>
-    <keyword type="function" name="dmap_db_add ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add"/>
-    <keyword type="function" name="dmap_db_add_path ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add-path"/>
-    <keyword type="function" name="dmap_db_add_with_id ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-add-with-id"/>
-    <keyword type="function" name="dmap_db_apply_filter ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-apply-filter"/>
-    <keyword type="function" name="dmap_db_count ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-count"/>
-    <keyword type="function" name="dmap_db_foreach ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-foreach"/>
-    <keyword type="function" name="dmap_db_lookup_by_id ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-lookup-by-id"/>
-    <keyword type="function" name="dmap_db_lookup_id_by_location ()" link="libdmapsharing-3.0-DMAPDb.html#dmap-db-lookup-id-by-location"/>
-    <keyword type="struct" name="struct DMAPMdnsBrowserClass" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserClass"/>
-    <keyword type="enum" name="enum DMAPMdnsBrowserError" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserError-enum"/>
+    <keyword type="function" name="kill_pipeline ()" link="libdmapsharing-3.0-dmap-gst-input-stream.html#kill-pipeline"/>
+    <keyword type="function" name="dmap_gst_input_stream_new ()" link="libdmapsharing-3.0-dmap-gst-input-stream.html#dmap-gst-input-stream-new"/>
+    <keyword type="function" name="dmapd_input_stream_strdup_format_extension ()" link="libdmapsharing-3.0-dmap-gst-input-stream.html#dmapd-input-stream-strdup-format-extension"/>
+    <keyword type="macro" name="DMAP_GST_MP3_INPUT_STREAM_GET_PRIVATE()" link="libdmapsharing-3.0-dmap-gst-mp3-input-stream.html#DMAP-GST-MP3-INPUT-STREAM-GET-PRIVATE:CAPS"/>
+    <keyword type="function" name="dmap_gst_mp3_input_stream_new ()" link="libdmapsharing-3.0-dmap-gst-mp3-input-stream.html#dmap-gst-mp3-input-stream-new"/>
+    <keyword type="macro" name="DMAP_GST_WAV_INPUT_STREAM_GET_PRIVATE()" link="libdmapsharing-3.0-dmap-gst-wav-input-stream.html#DMAP-GST-WAV-INPUT-STREAM-GET-PRIVATE:CAPS"/>
+    <keyword type="function" name="dmap_gst_wav_input_stream_new ()" link="libdmapsharing-3.0-dmap-gst-wav-input-stream.html#dmap-gst-wav-input-stream-new"/>
+    <keyword type="function" name="dmap_mdns_browser_error_quark ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-error-quark"/>
+    <keyword type="function" name="dmap_mdns_browser_new ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-new"/>
+    <keyword type="function" name="dmap_mdns_browser_start ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-start"/>
+    <keyword type="function" name="dmap_mdns_browser_stop ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-stop"/>
+    <keyword type="function" name="dmap_mdns_browser_get_services ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-services"/>
+    <keyword type="function" name="dmap_mdns_browser_get_service_type ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-service-type"/>
+    <keyword type="enum" name="enum DMAPMdnsBrowserServiceType" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType"/>
+    <keyword type="enum" name="enum DMAPMdnsBrowserTransportProtocol" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserTransportProtocol"/>
+    <keyword type="enum" name="enum DMAPMdnsBrowserError" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserError"/>
     <keyword type="struct" name="struct DMAPMdnsBrowserService" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserService"/>
-    <keyword type="enum" name="enum DMAPMdnsBrowserServiceType" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType-enum"/>
-    <keyword type="enum" name="enum DMAPMdnsBrowserTransportProtocol" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserTransportProtocol-enum"/>
+    <keyword type="struct" name="struct DMAPMdnsBrowserClass" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserClass"/>
     <keyword type="macro" name="DMAP_MDNS_BROWSER_ERROR" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAP-MDNS-BROWSER-ERROR:CAPS"/>
-    <keyword type="function" name="dmap_mdns_browser_error_quark ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-error-quark"/>
-    <keyword type="function" name="dmap_mdns_browser_get_service_type ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-service-type"/>
-    <keyword type="function" name="dmap_mdns_browser_get_services ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-get-services"/>
-    <keyword type="function" name="dmap_mdns_browser_new ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-new"/>
-    <keyword type="function" name="dmap_mdns_browser_start ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-start"/>
-    <keyword type="function" name="dmap_mdns_browser_stop ()" link="libdmapsharing-3.0-DMAPMdnsBrowser.html#dmap-mdns-browser-stop"/>
-    <keyword type="struct" name="DMAPMetaDataMap" link="libdmapsharing-3.0-dmap-share.html#DMAPMetaDataMap"/>
-    <keyword type="macro" name="DMAP_STATUS_OK" link="libdmapsharing-3.0-dmap-share.html#DMAP-STATUS-OK:CAPS"/>
-    <keyword type="function" name="add_entry_to_mlcl ()" link="libdmapsharing-3.0-dmap-share.html#add-entry-to-mlcl"/>
-    <keyword type="function" name="content_codes ()" link="libdmapsharing-3.0-dmap-share.html#content-codes"/>
-    <keyword type="function" name="ctrl_int ()" link="libdmapsharing-3.0-dmap-share.html#ctrl-int"/>
-    <keyword type="function" name="databases ()" link="libdmapsharing-3.0-dmap-share.html#databases"/>
-    <keyword type="function" name="databases_browse_xxx ()" link="libdmapsharing-3.0-dmap-share.html#databases-browse-xxx"/>
-    <keyword type="function" name="databases_items_xxx ()" link="libdmapsharing-3.0-dmap-share.html#databases-items-xxx"/>
-    <keyword type="function" name="dmap_share_free_filter ()" link="libdmapsharing-3.0-dmap-share.html#dmap-share-free-filter"/>
-    <keyword type="function" name="get_desired_port ()" link="libdmapsharing-3.0-dmap-share.html#get-desired-port"/>
-    <keyword type="function" name="get_type_of_service ()" link="libdmapsharing-3.0-dmap-share.html#get-type-of-service"/>
-    <keyword type="function" name="login ()" link="libdmapsharing-3.0-dmap-share.html#login"/>
-    <keyword type="function" name="logout ()" link="libdmapsharing-3.0-dmap-share.html#logout"/>
-    <keyword type="function" name="message_add_standard_headers ()" link="libdmapsharing-3.0-dmap-share.html#message-add-standard-headers"/>
-    <keyword type="function" name="name_collision ()" link="libdmapsharing-3.0-dmap-share.html#name-collision"/>
-    <keyword type="function" name="published ()" link="libdmapsharing-3.0-dmap-share.html#published"/>
-    <keyword type="function" name="server_info ()" link="libdmapsharing-3.0-dmap-share.html#server-info"/>
-    <keyword type="function" name="update ()" link="libdmapsharing-3.0-dmap-share.html#update"/>
-    <keyword type="enum" name="enum DMAPMediaKind" link="libdmapsharing-3.0-DMAPRecord.html#DMAPMediaKind-enum"/>
+    <keyword type="function" name="dmap_record_to_blob ()" link="libdmapsharing-3.0-DMAPRecord.html#dmap-record-to-blob"/>
+    <keyword type="function" name="dmap_record_set_from_blob ()" link="libdmapsharing-3.0-DMAPRecord.html#dmap-record-set-from-blob"/>
     <keyword type="struct" name="struct DMAPRecordIface" link="libdmapsharing-3.0-DMAPRecord.html#DMAPRecordIface"/>
     <keyword type="typedef" name="bitwise" link="libdmapsharing-3.0-DMAPRecord.html#bitwise"/>
-    <keyword type="function" name="dmap_record_set_from_blob ()" link="libdmapsharing-3.0-DMAPRecord.html#dmap-record-set-from-blob"/>
-    <keyword type="function" name="dmap_record_to_blob ()" link="libdmapsharing-3.0-DMAPRecord.html#dmap-record-to-blob"/>
+    <keyword type="enum" name="enum DMAPMediaKind" link="libdmapsharing-3.0-DMAPRecord.html#DMAPMediaKind"/>
+    <keyword type="function" name="dmap_record_factory_create ()" link="libdmapsharing-3.0-DMAPRecordFactory.html#dmap-record-factory-create"/>
     <keyword type="struct" name="struct DMAPRecordFactoryIface" link="libdmapsharing-3.0-DMAPRecordFactory.html#DMAPRecordFactoryIface"/>
-    <keyword type="function" name="dmap_record_factory_create ()" link="libdmapsharing-3.0-DMAPRecordFactory.html#dmap-record-factory-create"/>
-    <keyword type="function" name="dpap_connection_new ()" link="libdmapsharing-3.0-dpap-connection.html#dpap-connection-new"/>
+    <keyword type="function" name="get_desired_port ()" link="libdmapsharing-3.0-dmap-share.html#get-desired-port"/>
+    <keyword type="function" name="get_type_of_service ()" link="libdmapsharing-3.0-dmap-share.html#get-type-of-service"/>
+    <keyword type="function" name="message_add_standard_headers ()" link="libdmapsharing-3.0-dmap-share.html#message-add-standard-headers"/>
+    <keyword type="function" name="add_entry_to_mlcl ()" link="libdmapsharing-3.0-dmap-share.html#add-entry-to-mlcl"/>
+    <keyword type="function" name="databases_browse_xxx ()" link="libdmapsharing-3.0-dmap-share.html#databases-browse-xxx"/>
+    <keyword type="function" name="databases_items_xxx ()" link="libdmapsharing-3.0-dmap-share.html#databases-items-xxx"/>
+    <keyword type="function" name="server_info ()" link="libdmapsharing-3.0-dmap-share.html#server-info"/>
+    <keyword type="function" name="content_codes ()" link="libdmapsharing-3.0-dmap-share.html#content-codes"/>
+    <keyword type="function" name="login ()" link="libdmapsharing-3.0-dmap-share.html#login"/>
+    <keyword type="function" name="logout ()" link="libdmapsharing-3.0-dmap-share.html#logout"/>
+    <keyword type="function" name="update ()" link="libdmapsharing-3.0-dmap-share.html#update"/>
+    <keyword type="function" name="ctrl_int ()" link="libdmapsharing-3.0-dmap-share.html#ctrl-int"/>
+    <keyword type="function" name="published ()" link="libdmapsharing-3.0-dmap-share.html#published"/>
+    <keyword type="function" name="name_collision ()" link="libdmapsharing-3.0-dmap-share.html#name-collision"/>
+    <keyword type="function" name="databases ()" link="libdmapsharing-3.0-dmap-share.html#databases"/>
+    <keyword type="function" name="dmap_share_free_filter ()" link="libdmapsharing-3.0-dmap-share.html#dmap-share-free-filter"/>
+    <keyword type="macro" name="DMAP_STATUS_OK" link="libdmapsharing-3.0-dmap-share.html#DMAP-STATUS-OK:CAPS"/>
+    <keyword type="typedef" name="DMAPMetaDataMap" link="libdmapsharing-3.0-dmap-share.html#DMAPMetaDataMap"/>
+    <keyword type="function" name="dpap_connection_new ()" link="libdmapsharing-3.0-dpap-connection.html#dpap-connection-new"/>
+    <keyword type="function" name="dpap_record_read ()" link="libdmapsharing-3.0-DPAPRecord.html#dpap-record-read"/>
     <keyword type="struct" name="struct DPAPRecordIface" link="libdmapsharing-3.0-DPAPRecord.html#DPAPRecordIface"/>
-    <keyword type="function" name="dpap_record_read ()" link="libdmapsharing-3.0-DPAPRecord.html#dpap-record-read"/>
-    <keyword type="function" name="dpap_share_new ()" link="libdmapsharing-3.0-dpap-share.html#dpap-share-new"/>
-    <keyword type="function" name="add_guid ()" link="libdmapsharing-3.0-dacp-share.html#add-guid"/>
-    <keyword type="function" name="dacp_share_new ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-new"/>
-    <keyword type="function" name="dacp_share_pair ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-pair"/>
-    <keyword type="function" name="dacp_share_player_updated ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-player-updated"/>
-    <keyword type="function" name="dacp_share_start_lookup ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-start-lookup"/>
-    <keyword type="function" name="dacp_share_stop_lookup ()" link="libdmapsharing-3.0-dacp-share.html#dacp-share-stop-lookup"/>
-    <keyword type="function" name="lookup_guid ()" link="libdmapsharing-3.0-dacp-share.html#lookup-guid"/>
-    <keyword type="function" name="remote_found ()" link="libdmapsharing-3.0-dacp-share.html#remote-found"/>
-    <keyword type="function" name="remote_lost ()" link="libdmapsharing-3.0-dacp-share.html#remote-lost"/>
-    <keyword type="function" name="remote_paired ()" link="libdmapsharing-3.0-dacp-share.html#remote-paired"/>
+    <keyword type="function" name="dpap_share_new ()" link="libdmapsharing-3.0-dpap-share.html#dpap-share-new"/>
   </functions>
 </book>

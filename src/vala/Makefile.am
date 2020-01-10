@@ -1,4 +1,4 @@
-if MAINTAINER_MODE
+if BUILD_VAPI
 libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@.gi: libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.files libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.namespace
 	PKG_CONFIG_PATH=$(top_builddir):${PKG_CONFIG_PATH} $(VALA_GEN_INTROSPECT) libdmapsharing-@API_VERSION@-uninstalled libdmapsharing-@API_VERSION@-daap
 	@mv libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.gi libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@.gi
@@ -51,6 +51,11 @@ libdmapsharing-@API_VERSION@.vapi: libdmapsharing-@API_VERSION@-daap.vapi libdma
 all: libdmapsharing-@API_VERSION@.vapi
 endif
 
+vapidir = $(datadir)/vala/vapi
+
+dist_vapi_DATA = \
+        libdmapsharing-@API_VERSION@.vapi
+
 EXTRA_DIST = \
 	libdmapsharing-@API_VERSION@.vapi \
 	libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.excludes \
@@ -71,10 +76,6 @@ EXTRA_DIST = \
 	libdmapsharing-@API_VERSION@-dpap/libdmapsharing-@API_VERSION@-uninstalled.namespace
 
 CLEANFILES = \
-	libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.files \
-	libdmapsharing-@API_VERSION@-dacp/libdmapsharing-@API_VERSION@-uninstalled.files \
-	libdmapsharing-@API_VERSION@-dmap/libdmapsharing-@API_VERSION@-uninstalled.files \
-	libdmapsharing-@API_VERSION@-dpap/libdmapsharing-@API_VERSION@-uninstalled.files \
 	libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@.gi \
 	libdmapsharing-@API_VERSION@-dacp/libdmapsharing-@API_VERSION@.gi \
 	libdmapsharing-@API_VERSION@-dmap/libdmapsharing-@API_VERSION@.gi \
@@ -84,7 +85,13 @@ CLEANFILES = \
 	libdmapsharing-@API_VERSION@-dmap.vapi \
 	libdmapsharing-@API_VERSION@-dpap.vapi
 
-if MAINTAINER_MODE
+DISTCLEANFILES = \
+	libdmapsharing-@API_VERSION@-daap/libdmapsharing-@API_VERSION@-uninstalled.files \
+	libdmapsharing-@API_VERSION@-dacp/libdmapsharing-@API_VERSION@-uninstalled.files \
+	libdmapsharing-@API_VERSION@-dmap/libdmapsharing-@API_VERSION@-uninstalled.files \
+	libdmapsharing-@API_VERSION@-dpap/libdmapsharing-@API_VERSION@-uninstalled.files
+
+if BUILD_VAPI
 CLEANFILES += \
 	libdmapsharing-@API_VERSION@.vapi
 endif

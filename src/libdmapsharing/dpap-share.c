@@ -41,7 +41,7 @@
 #include <libsoup/soup-server.h>
 
 #include <libdmapsharing/dmap.h>
-#include <libdmapsharing/dmap-utils.h>
+#include <libdmapsharing/dmap-private-utils.h>
 #include <libdmapsharing/dmap-structure.h>
 
 static void dpap_share_set_property (GObject * object,
@@ -191,7 +191,7 @@ dpap_share_message_add_standard_headers (DMAPShare * share,
 					 SoupMessage * message)
 {
 	soup_message_headers_append (message->response_headers, "DPAP-Server",
-				     "libdmapsharing" VERSION);
+				     "libdmapsharing" "VERSION");
 }
 
 #define DMAP_VERSION 2.0

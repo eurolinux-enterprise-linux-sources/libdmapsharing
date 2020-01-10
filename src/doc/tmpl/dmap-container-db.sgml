@@ -40,12 +40,13 @@ DMAPContainerDb
 @record: 
 
 
-<!-- ##### FUNCTION dmap_container_db_count ##### -->
+<!-- ##### FUNCTION dmap_container_db_lookup_by_id ##### -->
 <para>
 
 </para>
 
 @db: 
+@id: 
 @Returns: 
 
 
@@ -59,13 +60,12 @@ DMAPContainerDb
 @data: 
 
 
-<!-- ##### FUNCTION dmap_container_db_lookup_by_id ##### -->
+<!-- ##### FUNCTION dmap_container_db_count ##### -->
 <para>
 
 </para>
 
 @db: 
-@id: 
 @Returns: 
 
 

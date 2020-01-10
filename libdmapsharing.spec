@@ -1,6 +1,6 @@
 Name: libdmapsharing
-Version: 2.9.16
-Release: 4%{?dist}
+Version: 2.9.30
+Release: 1%{?dist}
 License: LGPLv2+
 Source: http://www.flyn.org/projects/libdmapsharing/%{name}-%{version}.tar.gz
 URL: http://www.flyn.org/projects/libdmapsharing/
@@ -9,10 +9,6 @@ Group: Development/Libraries
 BuildRequires: pkgconfig, glib2-devel, libsoup-devel >= 2.32
 BuildRequires: avahi-glib-devel, gdk-pixbuf2-devel, gstreamer1-plugins-base-devel
 BuildRequires: git
-
-Patch0: 0001-Use-strlen-instead-of-hard-coding-string-length.patch
-Patch1: 0002-Avoid-OOB-read-with-buggy-servers.patch
-Patch2: 0003-Fix-clang-warning.patch
 
 %description 
 libdmapsharing implements the DMAP protocols. This includes support for
@@ -38,6 +34,7 @@ other resources needed for developing applications using libdmapsharing.
 %{_includedir}/libdmapsharing-3.0/
 %{_libdir}/libdmapsharing-3.0.so
 %{_datadir}/gtk-doc/html/libdmapsharing-3.0
+%{_datadir}/vala/vapi/libdmapsharing-3.0.vapi
 
 %prep
 %setup -q
@@ -65,6 +62,10 @@ rm -f ${RPM_BUILD_ROOT}%{_libdir}/libdmapsharing-3.0.la
 %postun -p /sbin/ldconfig
 
 %changelog
+* Wed May 20 2015 Bastien Nocera <bnocera@redhat.com> 2.9.30-1
+- Update to 2.9.30
+Resolves: #1221283
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.9.16-4
 - Mass rebuild 2014-01-24
 

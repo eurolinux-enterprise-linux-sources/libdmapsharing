@@ -39,14 +39,16 @@ static guint conn_type = DAAP;
 static void
 print_record (gpointer id, DMAPRecord *record, gpointer user_data)
 {
-	gchar *artist, *title;
+	gboolean has_video;
+	gchar   *artist, *title;
 
 	g_object_get (record,
-		     "songartist", &artist,
-		     "title",  &title,
-		     NULL);
+	             "has-video", &has_video,
+	             "songartist", &artist,
+	             "title",  &title,
+	              NULL);
 
-	g_print ("%d: %s %s\n", GPOINTER_TO_UINT (id), artist, title);
+	g_print ("%d: %s %s (has video: %s)\n", GPOINTER_TO_UINT (id), artist, title, has_video ? "Y" : "N");
 
 	g_free (artist);
 	g_free (title);
@@ -115,7 +117,7 @@ service_added_cb (DMAPMdnsBrowser *browser,
         }
         conn = DMAP_CONNECTION (dpap_connection_new (service->name, service->host, service->port, db, factory));
     }
-    g_signal_connect (DMAP_CONNECTION (conn), "authenticate", (DMAPConnectionCallback) authenticate_cb, NULL);
+    g_signal_connect (DMAP_CONNECTION (conn), "authenticate", G_CALLBACK(authenticate_cb), NULL);
     dmap_connection_connect (DMAP_CONNECTION (conn), (DMAPConnectionCallback) connected_cb, db);
 }
 
@@ -126,9 +128,6 @@ int main(int argc, char **argv)
 
     if (argc == 2)
         conn_type = atoi (argv[1]);
-
-    g_type_init ();
-    g_thread_init (NULL);
 
     loop = g_main_loop_new (NULL, FALSE);
 

@@ -1,0 +1,72 @@
+<!-- ##### SECTION Title ##### -->
+dmap-private-utils
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO DMAP_READ_UINT64_BE ##### -->
+<para>
+
+</para>
+
+@data: 
+
+
+<!-- ##### MACRO DMAP_READ_UINT32_BE ##### -->
+<para>
+
+</para>
+
+@data: 
+
+
+<!-- ##### MACRO DMAP_READ_UINT16_BE ##### -->
+<para>
+
+</para>
+
+@data: 
+
+
+<!-- ##### MACRO DMAP_READ_UINT8 ##### -->
+<para>
+
+</para>
+
+@data: 
+
+
+<!-- ##### FUNCTION dmap_write_next_chunk ##### -->
+<para>
+
+</para>
+
+@message: 
+@cd: 
+
+
+<!-- ##### FUNCTION dmap_chunked_message_finished ##### -->
+<para>
+
+</para>
+
+@message: 
+@cd: 
+
+

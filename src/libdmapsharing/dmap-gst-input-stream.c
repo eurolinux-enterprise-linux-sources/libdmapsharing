@@ -27,6 +27,7 @@
 #include "dmap-gst-input-stream.h"
 #include "dmap-gst-mp3-input-stream.h"
 #include "dmap-gst-wav-input-stream.h"
+#include "dmap-gst-qt-input-stream.h"
 #include "gst-util.h"
 
 #define GST_APP_MAX_BUFFERS 1024
@@ -56,9 +57,9 @@ struct DMAPGstInputStreamPrivate
 	gsize read_request;	/* Size of data asked for */
 	gsize write_request;	/* Number of bytes that must be read
 				 * to make room for write */
-	GCond *buffer_read_ready;	/* Signals when buffer >= read_req. */
-	GCond *buffer_write_ready;	/* Signals when buffer not full. */
-	GMutex *buffer_mutex;	/* Protects buffer and read_request */
+	GCond buffer_read_ready;	/* Signals when buffer >= read_req. */
+	GCond buffer_write_ready;	/* Signals when buffer not full. */
+	GMutex buffer_mutex;	/* Protects buffer and read_request */
 	gboolean buffer_closed;	/* May close before decoding complete */
 };
 
@@ -173,7 +174,7 @@ dmap_gst_input_stream_new_buffer_cb (GstElement * element,
 {
 	gsize i;
 	guint8 *ptr;
-	GTimeVal time;
+	gint64 end_time;
 	GstSample *sample = NULL;
 	GstBuffer *buffer = NULL;
 	GstMemory *memory = NULL;
@@ -183,15 +184,14 @@ dmap_gst_input_stream_new_buffer_cb (GstElement * element,
 	 * thread manipulating data after the pipeline has been destroyed.
 	 * see also dmap_gst_input_stream_close ().
 	 */
-	g_mutex_lock (stream->priv->buffer_mutex);
+	g_mutex_lock (&stream->priv->buffer_mutex);
 
 	if (stream->priv->buffer_closed) {
-		g_warning ("Unread data");
+		g_warning ("Buffer is closed, but unread data remains");
 		goto _return;
 	}
 
-	g_get_current_time (&time);
-	g_time_val_add (&time, QUEUE_PUSH_WAIT_SECONDS * 1000000);
+	end_time = g_get_monotonic_time () + QUEUE_PUSH_WAIT_SECONDS * G_TIME_SPAN_SECOND;
 
 	sample = gst_app_sink_pull_sample (GST_APP_SINK (element));
 	if (NULL == sample) {
@@ -217,15 +217,13 @@ dmap_gst_input_stream_new_buffer_cb (GstElement * element,
 	}
 
 	/* FIXME: this actually allows buffer to grow larger than max. */
-	if (g_queue_get_length (stream->priv->buffer) +
-	    info.size > DECODED_BUFFER_SIZE) {
+	if (g_queue_get_length (stream->priv->buffer) + info.size > DECODED_BUFFER_SIZE) {
 		stream->priv->write_request = info.size;
-		if (!g_cond_timed_wait (stream->priv->buffer_write_ready,
-					stream->priv->buffer_mutex, &time)) {
-			g_warning
-				("Timeout waiting for buffer to empty; will drop");
+		if (!g_cond_wait_until (&stream->priv->buffer_write_ready,
+		                        &stream->priv->buffer_mutex, end_time)) {
+			g_warning ("Timeout waiting for buffer to empty; will drop");
 		}
-		/* Required again because g_cond_timed_wait released mutex. */
+		/* Required again because g_cond_wait_until released mutex. */
 		if (stream->priv->buffer_closed) {
 			g_warning ("Unread data");
 			goto _return;
@@ -234,8 +232,7 @@ dmap_gst_input_stream_new_buffer_cb (GstElement * element,
 		stream->priv->write_request = 0;
 	}
 
-	if (g_queue_get_length (stream->priv->buffer) +
-	    info.size <= DECODED_BUFFER_SIZE) {
+	if (g_queue_get_length (stream->priv->buffer) + info.size <= DECODED_BUFFER_SIZE) {
 		ptr = info.data;
 
 		for (i = 0; i < info.size; i++) {
@@ -244,22 +241,22 @@ dmap_gst_input_stream_new_buffer_cb (GstElement * element,
 		}
 	}
 
-	if (g_queue_get_length (stream->priv->buffer)
-	    >= stream->priv->read_request) {
+	if (g_queue_get_length (stream->priv->buffer) >= stream->priv->read_request) {
 		stream->priv->read_request = 0;
-		g_cond_signal (stream->priv->buffer_read_ready);
+		g_cond_signal (&stream->priv->buffer_read_ready);
 	}
 
       _return:
 	if (NULL != memory) {
 		gst_memory_unmap (memory, &info);
+		gst_memory_unref (memory);
 	}
 
 	if (NULL != sample) {
 		gst_sample_unref (sample);
 	}
 
-	g_mutex_unlock (stream->priv->buffer_mutex);
+	g_mutex_unlock (&stream->priv->buffer_mutex);
 }
 
 GInputStream *
@@ -275,6 +272,9 @@ dmap_gst_input_stream_new (const gchar * transcode_mimetype,
 					 (src_stream));
 	} else if (!strcmp (transcode_mimetype, "audio/wav")) {
 		stream = G_INPUT_STREAM (dmap_gst_wav_input_stream_new
+					 (src_stream));
+	} else if (!strcmp (transcode_mimetype, "video/quicktime")) {
+		stream = G_INPUT_STREAM (dmap_gst_qt_input_stream_new
 					 (src_stream));
 	} else {
 		g_warning ("Transcode format %s not supported",
@@ -305,17 +305,16 @@ dmap_gst_input_stream_read (GInputStream * stream,
 {
 	int i;
 	DMAPGstInputStream *gst_stream = DMAP_GST_INPUT_STREAM (stream);
-	GTimeVal time;
+	gint64 end_time;
 
-	g_get_current_time (&time);
-	g_time_val_add (&time, QUEUE_POP_WAIT_SECONDS * 1000000);
+	end_time = g_get_monotonic_time () + QUEUE_POP_WAIT_SECONDS * G_TIME_SPAN_SECOND;
 
-	g_mutex_lock (gst_stream->priv->buffer_mutex);
+	g_mutex_lock (&gst_stream->priv->buffer_mutex);
 
 	gst_stream->priv->read_request = count;
 	if (g_queue_get_length (gst_stream->priv->buffer) < count
-	    && !g_cond_timed_wait (gst_stream->priv->buffer_read_ready,
-				   gst_stream->priv->buffer_mutex, &time)) {
+	    && !g_cond_wait_until (&gst_stream->priv->buffer_read_ready,
+	                           &gst_stream->priv->buffer_mutex, end_time)) {
 		/* Timeout: Count is now what's remaining.  Let's hope
 		 * we have enough of a lead on encoding so that this one
 		 * second timeout will go unnoticed.
@@ -324,14 +323,12 @@ dmap_gst_input_stream_read (GInputStream * stream,
 		/* Depending on timing, more data may have been written
 		 * since check: do not pull more than count:
 		 */
-		count = min (count,
-			     g_queue_get_length (gst_stream->priv->buffer));
+		count = min (count, g_queue_get_length (gst_stream->priv->buffer));
 	}
 
 	for (i = 0; i < count; i++) {
 		((guint8 *) buffer)[i] =
-			GPOINTER_TO_INT (g_queue_pop_head
-					 (gst_stream->priv->buffer));
+			GPOINTER_TO_INT (g_queue_pop_head (gst_stream->priv->buffer));
 	}
 
 	if (gst_stream->priv->write_request > count)
@@ -340,10 +337,10 @@ dmap_gst_input_stream_read (GInputStream * stream,
 		gst_stream->priv->write_request = 0;
 
 	if (gst_stream->priv->write_request <= 0) {
-		g_cond_signal (gst_stream->priv->buffer_write_ready);
+		g_cond_signal (&gst_stream->priv->buffer_write_ready);
 	}
 
-	g_mutex_unlock (gst_stream->priv->buffer_mutex);
+	g_mutex_unlock (&gst_stream->priv->buffer_mutex);
 
 	return count;
 }
@@ -371,12 +368,12 @@ dmap_gst_input_stream_close (GInputStream * stream,
 
 	dmap_gst_input_stream_kill_pipeline (gst_stream);
 
-	g_mutex_lock (gst_stream->priv->buffer_mutex);
+	g_mutex_lock (&gst_stream->priv->buffer_mutex);
 
 	g_queue_free (gst_stream->priv->buffer);
 	gst_stream->priv->buffer_closed = TRUE;
 
-	g_mutex_unlock (gst_stream->priv->buffer_mutex);
+	g_mutex_unlock (&gst_stream->priv->buffer_mutex);
 
 	return TRUE;
 }
@@ -462,10 +459,14 @@ dmap_gst_input_stream_init (DMAPGstInputStream * stream)
 	stream->priv->buffer = g_queue_new ();
 	stream->priv->read_request = 0;
 	stream->priv->write_request = 0;
-	stream->priv->buffer_read_ready = g_cond_new ();
-	stream->priv->buffer_write_ready = g_cond_new ();
-	stream->priv->buffer_mutex = g_mutex_new ();
 	stream->priv->buffer_closed = FALSE;
+
+	// FIXME: Never g_mutex_clear'ed:
+	g_mutex_init (&stream->priv->buffer_mutex);
+
+	// FIXME: Never g_cond_clear'ed:
+	g_cond_init (&stream->priv->buffer_read_ready);
+	g_cond_init (&stream->priv->buffer_write_ready);
 }
 
 G_DEFINE_TYPE_WITH_CODE (DMAPGstInputStream, dmap_gst_input_stream,

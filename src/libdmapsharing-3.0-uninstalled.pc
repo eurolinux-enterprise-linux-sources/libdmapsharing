@@ -5,7 +5,7 @@ includedir=${pcfiledir}
 
 Name: libdmapsharing
 Description: libdmapsharing
-Version: 2.9.16
+Version: 2.9.30
 Requires: glib-2.0 libsoup-2.4 gstreamer-1.0
 Libs: -L${libdir} -ldmapsharing-3.0
 Cflags: -I${includedir}

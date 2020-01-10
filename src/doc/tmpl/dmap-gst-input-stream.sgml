@@ -20,6 +20,14 @@ dmap-gst-input-stream
 <!-- ##### SECTION Image ##### -->
 
 
+<!-- ##### USER_FUNCTION kill_pipeline ##### -->
+<para>
+
+</para>
+
+@Param1: 
+
+
 <!-- ##### FUNCTION dmap_gst_input_stream_new ##### -->
 <para>
 
@@ -37,13 +45,5 @@ dmap-gst-input-stream
 
 @format_code: 
 @Returns: 
-
-
-<!-- ##### USER_FUNCTION kill_pipeline ##### -->
-<para>
-
-</para>
-
-@Param1: 
 
 

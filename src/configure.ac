@@ -1,8 +1,11 @@
-AC_INIT(libdmapsharing, 2.9.16)
+AC_INIT(libdmapsharing, 2.9.30)
 
 dnl when going to/from release please set the nano (fourth number) right !
 dnl releases only do Wall, cvs and prerelease does Werror too
-AS_VERSION(libdmapsharing, LIBDMAPSHARING, 2, 9, 16, LIBDMAPSHARING_CVS="no", LIBDMAPSHARING_CVS="yes")
+AS_VERSION(libdmapsharing, LIBDMAPSHARING, 2, 9, 30, LIBDMAPSHARING_CVS="no", LIBDMAPSHARING_CVS="yes")
+
+# Enable silent build when available (Automake 1.11)
+m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
 dnl FIXME:
 dnl would like to automate this off the above definitions, but API might be 2.2 with version 2.1.
@@ -37,9 +40,19 @@ AM_PROG_CC_STDC
 AC_HEADER_STDC
 AC_PROG_LIBTOOL
 
+GOBJECT_INTROSPECTION_CHECK([1.30.0])
+
 GTK_DOC_CHECK(1.0)
 AC_CONFIG_MACRO_DIR(m4)
 
+dnl Test if --disable-tests given
+AC_ARG_ENABLE(tests, [AC_HELP_STRING([--disable-tests],[do not build tests])], tests=$enableval, tests=yes)
+if test x$tests = xyes; then
+	AC_DEFINE(WITH_TESTS,1,[Defined when tests are to be built])
+	AM_CONDITIONAL(WITH_TESTS, true)
+else
+	AM_CONDITIONAL(WITH_TESTS, false)
+fi
 
 dnl Test if --enable-debug given
 AC_ARG_ENABLE(debug, [AC_HELP_STRING([--enable-debug],[enable debugging mode])])
@@ -71,7 +84,7 @@ if test "x$HAVE_PKGCONFIG" = "xno"; then
 fi
 
 dnl Check for Glib2.0
-PKG_CHECK_MODULES(GLIB, glib-2.0, HAVE_GLIB=yes,HAVE_GLIB=no)
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= 2.36, HAVE_GLIB=yes,HAVE_GLIB=no)
 
 dnl Give error and exit if we don't have glib
 if test "x$HAVE_GLIB" = "xno"; then
@@ -172,8 +185,8 @@ fi
 
 if test x"$WITH_MDNS" = xauto; then
   if test x"$HAVE_DNS_SD" = xyes; then
-    MDNS_CFLAGS=""
-    MDNS_LIBS="$DNS_SD_LIBS"
+    MDNS_CFLAGS=$DNS_SD_CFLAGS
+    MDNS_LIBS=$DNS_SD_LIBS
     AC_DEFINE(WITH_DNS_SD, 1, [Define if mDNS/DNS-SD implementation uses Apple's DNSSD])
     USE_DNS_SD=yes
     AC_MSG_NOTICE([Detected Apple's DNSSD, using it for mDNS/DNS-SD])
@@ -336,15 +349,15 @@ AM_CONDITIONAL(USE_GSTREAMERAPP, test x"$HAVE_GSTREAMERAPP" = "xyes")
 AC_SUBST(GSTREAMERAPP_CFLAGS)
 AC_SUBST(GSTREAMERAPP_LIBS)
 
-AM_CONDITIONAL(HAVE_VALA, false)
-if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
-        AM_PROG_VALAC([0.11.4])
-        if test "x$VALAC" = "x" ; then
-                AC_MSG_ERROR([Cannot find the "valac" compiler in your PATH])
-        fi
-	AC_PATH_PROG(VALA_GEN_INTROSPECT, vala-gen-introspect)
-	AC_PATH_PROG(VAPIGEN, vapigen)
-	AM_CONDITIONAL(HAVE_VALA, true)
+AM_PROG_VALAC([0.11.4])
+AM_CONDITIONAL(HAVE_VALAC, test -x "$VALAC")
+
+AC_PATH_PROG(VALA_GEN_INTROSPECT, vala-gen-introspect)
+AC_PATH_PROG(VAPIGEN, vapigen)
+dnl GOBJECT_INTROSPECTION_CHECK sets found_introspection.
+AM_CONDITIONAL(BUILD_VAPI, test -n "$VALA_GEN_INTROSPECT" -a -n "$VAPIGEN" -a xyes = x"$found_introspection")
+if ! test -n "$VALA_GEN_INTROSPECT" -a -n "$VAPIGEN" -a xyes = x"$found_introspection"; then
+	AC_WARN([will not build vapi])
 fi
 
 PKG_CHECK_MODULES(GTK, gtk+-2.0, HAVE_GTK=yes, HAVE_GTK=no)
@@ -358,20 +371,15 @@ AM_CONDITIONAL(HAVE_GEE, test "x$HAVE_GEE" = "xyes")
 AC_SUBST(GEE_CFLAGS)
 AC_SUBST(GEE_LIBS)
 
-if test "x$HAVE_VALA" = "xyes" -a "x$HAVE_GEE" = "xyes" -a "x$HAVE_GTK" = "xyes"; then
-	AM_CONDITIONAL(BUILD_DPAPVIEW, true)
-else
-	AM_CONDITIONAL(BUILD_DPAPVIEW, false)
-	AC_WARN([Will not build dpapview])
+AM_CONDITIONAL(BUILD_DPAPVIEW, test "x$HAVE_VALA" = "xyes" -a "x$HAVE_GEE" = "xyes" -a "x$HAVE_GTK" = "xyes")
+if test -n "$BUILD_DPAPVIEW" ; then
+	AC_WARN([will not build dpapview])
 fi
 
-AM_CONDITIONAL(HAVE_CHECK, false)
-if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
-	PKG_CHECK_MODULES([CHECK], [check >= 0.9.4],have_check=yes,have_check=no)
-	AM_CONDITIONAL(HAVE_CHECK, test x"$have_check" = "xyes")
-	if test "x$have_check" = "xyes"; then
-		AC_DEFINE(HAVE_CHECK, 1, [Define if check support is enabled])
-	fi
+PKG_CHECK_MODULES([CHECK], [check >= 0.9.4],have_check=yes,have_check=no)
+AM_CONDITIONAL(HAVE_CHECK, test x"$have_check" = "xyes")
+if test "x$have_check" = "xyes"; then
+	AC_DEFINE(HAVE_CHECK, 1, [Define if check support is enabled])
 fi
 
 AC_CHECK_LIB(z, uncompress)

@@ -2,32 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>dmap-connection</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
-<link rel="home" href="index.html" title="libdmapsharing Reference Manual">
-<link rel="up" href="ch04.html" title="Libdmapsharing Objects and Interfaces">
-<link rel="prev" href="libdmapsharing-3.0-daap-share.html" title="daap-share">
+<title>libdmapsharing-3.0 Reference Manual: dmap-connection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libdmapsharing-3.0 Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libdmapsharing-3.0-dacp-share.html" title="dacp-share">
 <link rel="next" href="libdmapsharing-3.0-DMAPContainerDb.html" title="DMAPContainerDb">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="libdmapsharing-3.0-daap-share.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">libdmapsharing Reference Manual</th>
-<td><a accesskey="n" href="libdmapsharing-3.0-DMAPContainerDb.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#libdmapsharing-3.0-dmap-connection.synopsis" class="shortcut">Top</a>
-                   | 
-                  <a href="#libdmapsharing-3.0-dmap-connection.description" class="shortcut">Description</a>
-                   | 
-                  <a href="#libdmapsharing-3.0-dmap-connection.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libdmapsharing-3.0-dmap-connection.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#libdmapsharing-3.0-dmap-connection.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libdmapsharing-3.0-dacp-share.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libdmapsharing-3.0-DMAPContainerDb.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="libdmapsharing-3.0-dmap-connection"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -35,68 +30,188 @@
 <h2><span class="refentrytitle"><a name="libdmapsharing-3.0-dmap-connection.top_of_page"></a>dmap-connection</span></h2>
 <p>dmap-connection</p>
 </td>
-<td valign="top" align="right"></td>
+<td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv">
-<a name="libdmapsharing-3.0-dmap-connection.synopsis"></a><h2>Synopsis</h2>
-<a name="DMAPConnectionState"></a><pre class="synopsis"><span class="returnvalue">gboolean</span>            (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()">*DMAPConnectionCallback</a>)           (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> result</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *reason</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
-enum                <a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState-enum" title="enum DMAPConnectionState">DMAPConnectionState</a>;
-<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler" title="DMAPResponseHandler ()">*DMAPResponseHandler</a>)              (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><span class="type">guint</span> status</code></em>,
-                                                         <em class="parameter"><code><span class="type">GNode</span> *structure</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
-<span class="returnvalue">char</span> *              (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#authenticate" title="authenticate ()">*authenticate</a>)                     (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
-<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#connected" title="connected ()">*connected</a>)                        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#connecting" title="connecting ()">*connecting</a>)                       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState"><span class="type">DMAPConnectionState</span></a> state</code></em>,
-                                                         <em class="parameter"><code><span class="type">float</span> progress</code></em>);
-<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#disconnected" title="disconnected ()">*disconnected</a>)                     (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-authenticate-message" title="dmap_connection_authenticate_message ()">dmap_connection_authenticate_message</a>
-                                                        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a> *session</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupAuth.html"><span class="type">SoupAuth</span></a> *auth</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *password</code></em>);
-<a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *       <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-build-message" title="dmap_connection_build_message ()">dmap_connection_build_message</a>       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
-                                                         <em class="parameter"><code><span class="type">gdouble</span> version</code></em>,
-                                                         <em class="parameter"><code><span class="type">gint</span> req_id</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> send_close</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-connect" title="dmap_connection_connect ()">dmap_connection_connect</a>             (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-disconnect" title="dmap_connection_disconnect ()">dmap_connection_disconnect</a>          (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
-<span class="returnvalue">gboolean</span>            <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get" title="dmap_connection_get ()">dmap_connection_get</a>                 (<em class="parameter"><code><span class="type">DMAPConnection</span> *self</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler" title="DMAPResponseHandler ()"><span class="type">DMAPResponseHandler</span></a> handler</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
-<a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessageHeaders.html#SoupMessageHeaders"><span class="returnvalue">SoupMessageHeaders</span></a> * <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-headers" title="dmap_connection_get_headers ()">dmap_connection_get_headers</a>        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *uri</code></em>);
-<span class="returnvalue">GSList</span> *            <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-playlists" title="dmap_connection_get_playlists ()">dmap_connection_get_playlists</a>       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">gboolean</span>            <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-is-connected" title="dmap_connection_is_connected ()">dmap_connection_is_connected</a>        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-setup" title="dmap_connection_setup ()">dmap_connection_setup</a>               (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">DMAPContentCode</span>     (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#get-protocol-version-cc" title="get_protocol_version_cc ()">*get_protocol_version_cc</a>)          (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<span class="returnvalue">gchar</span> *             (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#get-query-metadata" title="get_query_metadata ()">*get_query_metadata</a>)               (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-<a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="returnvalue">DMAPRecord</span></a> *        (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#handle-mlcl" title="handle_mlcl ()">*handle_mlcl</a>)                      (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecordFactory.html"><span class="type">DMAPRecordFactory</span></a> *factory</code></em>,
-                                                         <em class="parameter"><code><span class="type">GNode</span> *mlcl</code></em>,
-                                                         <em class="parameter"><code><span class="type">gint</span> *item_id</code></em>);
-<span class="returnvalue">void</span>                (<a class="link" href="libdmapsharing-3.0-dmap-connection.html#operation-done" title="operation_done ()">*operation_done</a>)                   (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);
-</pre>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dmap-connection.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">DMAPContentCode</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#get-protocol-version-cc" title="get_protocol_version_cc ()">*get_protocol_version_cc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#get-query-metadata" title="get_query_metadata ()">*get_query_metadata</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">DMAPRecord</span> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#handle-mlcl" title="handle_mlcl ()">*handle_mlcl</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#connected" title="connected ()">*connected</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#disconnected" title="disconnected ()">*disconnected</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#authenticate" title="authenticate ()">*authenticate</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#connecting" title="connecting ()">*connecting</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#operation-done" title="operation_done ()">*operation_done</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()">*DMAPConnectionCallback</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler" title="DMAPResponseHandler ()">*DMAPResponseHandler</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-is-connected" title="dmap_connection_is_connected ()">dmap_connection_is_connected</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-setup" title="dmap_connection_setup ()">dmap_connection_setup</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-connect" title="dmap_connection_connect ()">dmap_connection_connect</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-disconnect" title="dmap_connection_disconnect ()">dmap_connection_disconnect</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessageHeaders.html#SoupMessageHeaders"><span class="returnvalue">SoupMessageHeaders</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-headers" title="dmap_connection_get_headers ()">dmap_connection_get_headers</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GSList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get-playlists" title="dmap_connection_get_playlists ()">dmap_connection_get_playlists</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-build-message" title="dmap_connection_build_message ()">dmap_connection_build_message</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-authenticate-message" title="dmap_connection_authenticate_message ()">dmap_connection_authenticate_message</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libdmapsharing-3.0-dmap-connection.html#dmap-connection-get" title="dmap_connection_get ()">dmap_connection_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dmap-connection.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState" title="enum DMAPConnectionState">DMAPConnectionState</a></td>
+</tr></tbody>
+</table></div>
 </div>
 <div class="refsect1">
 <a name="libdmapsharing-3.0-dmap-connection.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="synopsis">
-  GEnum
-   +----DMAPConnectionState
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">╰──</span> DMAPConnectionState
 </pre>
 </div>
 <div class="refsect1">
@@ -105,229 +220,337 @@ enum                <a class="link" href="libdmapsharing-3.0-dmap-connection.htm
 </p>
 </div>
 <div class="refsect1">
-<a name="libdmapsharing-3.0-dmap-connection.details"></a><h2>Details</h2>
+<a name="libdmapsharing-3.0-dmap-connection.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
-<a name="DMAPConnectionCallback"></a><h3>DMAPConnectionCallback ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*DMAPConnectionCallback)           (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> result</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *reason</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<a name="get-protocol-version-cc"></a><h3>get_protocol_version_cc ()</h3>
+<pre class="programlisting"><span class="returnvalue">DMAPContentCode</span>
+<span class="c_punctuation">(</span>*get_protocol_version_cc<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.2.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="get-query-metadata"></a><h3>get_query_metadata ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+<span class="c_punctuation">(</span>*get_query_metadata<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.3.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="handle-mlcl"></a><h3>handle_mlcl ()</h3>
+<pre class="programlisting"><span class="returnvalue">DMAPRecord</span> *
+<span class="c_punctuation">(</span>*handle_mlcl<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                <em class="parameter"><code><span class="type">DMAPRecordFactory</span> *factory</code></em>,
+                <em class="parameter"><code><span class="type">GNode</span> *mlcl</code></em>,
+                <em class="parameter"><code><span class="type">gint</span> *item_id</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.4.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="connected"></a><h3>connected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*connected<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="DMAPConnectionState-enum"></a><h3>enum DMAPConnectionState</h3>
-<pre class="programlisting">typedef enum {
-	DMAP_GET_INFO = 0,
-	DMAP_LOGIN,
-	DMAP_GET_REVISION_NUMBER,
-	DMAP_GET_DB_INFO,
-	DMAP_GET_SONGS,
-	DMAP_GET_PLAYLISTS,
-	DMAP_GET_PLAYLIST_ENTRIES,
-	DMAP_LOGOUT,
-	DMAP_DONE
-} DMAPConnectionState;
-</pre>
+<a name="disconnected"></a><h3>disconnected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*disconnected<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="DMAPResponseHandler"></a><h3>DMAPResponseHandler ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*DMAPResponseHandler)              (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><span class="type">guint</span> status</code></em>,
-                                                         <em class="parameter"><code><span class="type">GNode</span> *structure</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<a name="authenticate"></a><h3>authenticate ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *
+<span class="c_punctuation">(</span>*authenticate<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                 <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.7.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="connecting"></a><h3>connecting ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*connecting<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+               <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState" title="enum DMAPConnectionState"><span class="type">DMAPConnectionState</span></a> state</code></em>,
+               <em class="parameter"><code><span class="type">float</span> progress</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="authenticate"></a><h3>authenticate ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *              (*authenticate)                     (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<a name="operation-done"></a><h3>operation_done ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*operation_done<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="connected"></a><h3>connected ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*connected)                        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<a name="DMAPConnectionCallback"></a><h3>DMAPConnectionCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+<span class="c_punctuation">(</span>*DMAPConnectionCallback<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> result</code></em>,
+                           <em class="parameter"><code>const <span class="type">char</span> *reason</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.10.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DMAPResponseHandler"></a><h3>DMAPResponseHandler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*DMAPResponseHandler<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                        <em class="parameter"><code><span class="type">guint</span> status</code></em>,
+                        <em class="parameter"><code><span class="type">GNode</span> *structure</code></em>,
+                        <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="connecting"></a><h3>connecting ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*connecting)                       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionState"><span class="type">DMAPConnectionState</span></a> state</code></em>,
-                                                         <em class="parameter"><code><span class="type">float</span> progress</code></em>);</pre>
+<a name="dmap-connection-is-connected"></a><h3>dmap_connection_is_connected ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+dmap_connection_is_connected (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.12.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-connection-setup"></a><h3>dmap_connection_setup ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+dmap_connection_setup (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="disconnected"></a><h3>disconnected ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*disconnected)                     (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<a name="dmap-connection-connect"></a><h3>dmap_connection_connect ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+dmap_connection_connect (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
+                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="dmap-connection-authenticate-message"></a><h3>dmap_connection_authenticate_message ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                dmap_connection_authenticate_message
-                                                        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a> *session</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupAuth.html"><span class="type">SoupAuth</span></a> *auth</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *password</code></em>);</pre>
+<a name="dmap-connection-disconnect"></a><h3>dmap_connection_disconnect ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+dmap_connection_disconnect (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                            <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
+                            <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
-Attach an authentication credential to a request. This
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-connection-get-headers"></a><h3>dmap_connection_get_headers ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessageHeaders.html#SoupMessageHeaders"><span class="returnvalue">SoupMessageHeaders</span></a> *
+dmap_connection_get_headers (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                             <em class="parameter"><code>const <span class="type">char</span> *uri</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.16.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-connection-get-playlists"></a><h3>dmap_connection_get_playlists ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *
+dmap_connection_get_playlists (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.17.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-connection-build-message"></a><h3>dmap_connection_build_message ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *
+dmap_connection_build_message (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
+                               <em class="parameter"><code><span class="type">gdouble</span> version</code></em>,
+                               <em class="parameter"><code><span class="type">gint</span> req_id</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> send_close</code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.18.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dmap-connection-authenticate-message"></a><h3>dmap_connection_authenticate_message ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+dmap_connection_authenticate_message (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
+                                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a> *session</code></em>,
+                                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupAuth.html"><span class="type">SoupAuth</span></a> *auth</code></em>,
+                                      <em class="parameter"><code>const <span class="type">char</span> *password</code></em>);</pre>
+<p>Attach an authentication credential to a request. This
 method should be called by a function that is connected to the
-<span class="type">"authenticate"</span> signal. The signal will provide the
+<span class="type">“authenticate”</span> signal. The signal will provide the
 connection, session, message and auth to that function. That function
-should obtain a password and provide it to this method.
-</p>
-<div class="variablelist"><table border="0" class="variablelist">
+should obtain a password and provide it to this method.</p>
+<div class="refsect3">
+<a name="id-1.2.8.7.19.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
-<col align="left" valign="top">
-<col>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
 </colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
-<td>A <span class="type">DMAPConnection</span>
-</td>
+<td class="parameter_name"><p>connection</p></td>
+<td class="parameter_description"><p>A <span class="type">DMAPConnection</span></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
-<td>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a>
-</td>
+<td class="parameter_name"><p>session</p></td>
+<td class="parameter_description"><p>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupSession.html"><span class="type">SoupSession</span></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
-<td>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a>
-</td>
+<td class="parameter_name"><p>message</p></td>
+<td class="parameter_description"><p>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>auth</code></em> :</span></p></td>
-<td>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupAuth.html"><span class="type">SoupAuth</span></a>
-</td>
+<td class="parameter_name"><p>auth</p></td>
+<td class="parameter_description"><p>A <a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupAuth.html"><span class="type">SoupAuth</span></a></p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>password</code></em> :</span></p></td>
-<td>A password</td>
+<td class="parameter_name"><p>password</p></td>
+<td class="parameter_description"><p>A password</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-build-message"></a><h3>dmap_connection_build_message ()</h3>
-<pre class="programlisting"><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="returnvalue">SoupMessage</span></a> *       dmap_connection_build_message       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
-                                                         <em class="parameter"><code><span class="type">gdouble</span> version</code></em>,
-                                                         <em class="parameter"><code><span class="type">gint</span> req_id</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> send_close</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="dmap-connection-connect"></a><h3>dmap_connection_connect ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                dmap_connection_connect             (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<a name="dmap-connection-get"></a><h3>dmap_connection_get ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+dmap_connection_get (<em class="parameter"><code><span class="type">DMAPConnection</span> *self</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                     <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
+                     <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler" title="DMAPResponseHandler ()"><span class="type">DMAPResponseHandler</span></a> handler</code></em>,
+                     <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 </p>
+<div class="refsect3">
+<a name="id-1.2.8.7.20.5"></a><h4>Returns</h4>
+<p></p>
 </div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-disconnect"></a><h3>dmap_connection_disconnect ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                dmap_connection_disconnect          (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPConnectionCallback" title="DMAPConnectionCallback ()"><span class="type">DMAPConnectionCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
-<p>
-</p>
 </div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-get"></a><h3>dmap_connection_get ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            dmap_connection_get                 (<em class="parameter"><code><span class="type">DMAPConnection</span> *self</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
-                                                         <em class="parameter"><code><span class="type">gboolean</span> need_hash</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="libdmapsharing-3.0-dmap-connection.html#DMAPResponseHandler" title="DMAPResponseHandler ()"><span class="type">DMAPResponseHandler</span></a> handler</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
-<p>
-</p>
 </div>
-<hr>
+<div class="refsect1">
+<a name="libdmapsharing-3.0-dmap-connection.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
-<a name="dmap-connection-get-headers"></a><h3>dmap_connection_get_headers ()</h3>
-<pre class="programlisting"><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessageHeaders.html#SoupMessageHeaders"><span class="returnvalue">SoupMessageHeaders</span></a> * dmap_connection_get_headers        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code>const <span class="type">char</span> *uri</code></em>);</pre>
+<a name="DMAPConnectionState"></a><h3>enum DMAPConnectionState</h3>
 <p>
 </p>
+<div class="refsect3">
+<a name="id-1.2.8.8.2.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-INFO:CAPS"></a>DMAP_GET_INFO</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-LOGIN:CAPS"></a>DMAP_LOGIN</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-REVISION-NUMBER:CAPS"></a>DMAP_GET_REVISION_NUMBER</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-DB-INFO:CAPS"></a>DMAP_GET_DB_INFO</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-SONGS:CAPS"></a>DMAP_GET_SONGS</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-PLAYLISTS:CAPS"></a>DMAP_GET_PLAYLISTS</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-GET-PLAYLIST-ENTRIES:CAPS"></a>DMAP_GET_PLAYLIST_ENTRIES</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-LOGOUT:CAPS"></a>DMAP_LOGOUT</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="DMAP-DONE:CAPS"></a>DMAP_DONE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
 </div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-get-playlists"></a><h3>dmap_connection_get_playlists ()</h3>
-<pre class="programlisting"><span class="returnvalue">GSList</span> *            dmap_connection_get_playlists       (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-is-connected"></a><h3>dmap_connection_is_connected ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            dmap_connection_is_connected        (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="dmap-connection-setup"></a><h3>dmap_connection_setup ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                dmap_connection_setup               (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="get-protocol-version-cc"></a><h3>get_protocol_version_cc ()</h3>
-<pre class="programlisting"><span class="returnvalue">DMAPContentCode</span>     (*get_protocol_version_cc)          (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="get-query-metadata"></a><h3>get_query_metadata ()</h3>
-<pre class="programlisting"><span class="returnvalue">gchar</span> *             (*get_query_metadata)               (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="handle-mlcl"></a><h3>handle_mlcl ()</h3>
-<pre class="programlisting"><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecord.html"><span class="returnvalue">DMAPRecord</span></a> *        (*handle_mlcl)                      (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>,
-                                                         <em class="parameter"><code><a href="http://www.flyn.org/projects/libdmapsharing/doc/DMAPRecordFactory.html"><span class="type">DMAPRecordFactory</span></a> *factory</code></em>,
-                                                         <em class="parameter"><code><span class="type">GNode</span> *mlcl</code></em>,
-                                                         <em class="parameter"><code><span class="type">gint</span> *item_id</code></em>);</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="operation-done"></a><h3>operation_done ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*operation_done)                   (<em class="parameter"><code><span class="type">DMAPConnection</span> *connection</code></em>);</pre>
-<p>
-</p>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.21</div>
 </body>
 </html>

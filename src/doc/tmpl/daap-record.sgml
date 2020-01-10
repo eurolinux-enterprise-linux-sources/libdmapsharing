@@ -29,17 +29,6 @@ DAAPRecord
 @itunes_compat: 
 @read: 
 
-<!-- ##### FUNCTION daap_record_cmp_by_album ##### -->
-<para>
-
-</para>
-
-@a: 
-@b: 
-@db: 
-@Returns: 
-
-
 <!-- ##### FUNCTION daap_record_itunes_compat ##### -->
 <para>
 
@@ -56,6 +45,17 @@ DAAPRecord
 
 @record: 
 @err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION daap_record_cmp_by_album ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@db: 
 @Returns: 
 
 

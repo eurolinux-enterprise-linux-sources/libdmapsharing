@@ -17,9 +17,9 @@ daap_connection_get_type
 <FILE>daap-record</FILE>
 <TITLE>DAAPRecord</TITLE>
 DAAPRecordIface
-daap_record_cmp_by_album
 daap_record_itunes_compat
 daap_record_read
+daap_record_cmp_by_album
 <SUBSECTION Standard>
 DAAP_RECORD
 DAAP_RECORD_GET_INTERFACE
@@ -59,17 +59,17 @@ dacp_connection_get_type
 <SECTION>
 <FILE>dacp-player</FILE>
 <TITLE>DACPPlayer</TITLE>
+DACPRepeatState
 DACPPlayState
 DACPPlayerIface
-DACPRepeatState
+dacp_player_now_playing_record
+dacp_player_now_playing_artwork
+dacp_player_play_pause
+dacp_player_pause
+dacp_player_next_item
+dacp_player_prev_item
 dacp_player_cue_clear
 dacp_player_cue_play
-dacp_player_next_item
-dacp_player_now_playing_artwork
-dacp_player_now_playing_record
-dacp_player_pause
-dacp_player_play_pause
-dacp_player_prev_item
 <SUBSECTION Standard>
 DACP_PLAYER
 DACP_PLAYER_GET_INTERFACE
@@ -80,16 +80,16 @@ dacp_player_get_type
 
 <SECTION>
 <FILE>dacp-share</FILE>
-add_guid
-dacp_share_new
-dacp_share_pair
-dacp_share_player_updated
-dacp_share_start_lookup
-dacp_share_stop_lookup
 lookup_guid
+add_guid
 remote_found
 remote_lost
 remote_paired
+dacp_share_new
+dacp_share_pair
+dacp_share_start_lookup
+dacp_share_stop_lookup
+dacp_share_player_updated
 <SUBSECTION Standard>
 DACPSharePrivate
 DACP_SHARE
@@ -102,32 +102,27 @@ dacp_share_get_type
 </SECTION>
 
 <SECTION>
-<FILE>dmap</FILE>
-
-</SECTION>
-
-<SECTION>
 <FILE>dmap-connection</FILE>
-DMAPConnectionCallback
 DMAPConnectionState
-DMAPResponseHandler
-authenticate
-connected
-connecting
-disconnected
-dmap_connection_authenticate_message
-dmap_connection_build_message
-dmap_connection_connect
-dmap_connection_disconnect
-dmap_connection_get
-dmap_connection_get_headers
-dmap_connection_get_playlists
-dmap_connection_is_connected
-dmap_connection_setup
 get_protocol_version_cc
 get_query_metadata
 handle_mlcl
+connected
+disconnected
+authenticate
+connecting
 operation_done
+DMAPConnectionCallback
+DMAPResponseHandler
+dmap_connection_is_connected
+dmap_connection_setup
+dmap_connection_connect
+dmap_connection_disconnect
+dmap_connection_get_headers
+dmap_connection_get_playlists
+dmap_connection_build_message
+dmap_connection_authenticate_message
+dmap_connection_get
 <SUBSECTION Standard>
 DMAPConnectionPrivate
 DMAP_CONNECTION
@@ -144,9 +139,9 @@ dmap_connection_get_type
 <TITLE>DMAPContainerDb</TITLE>
 DMAPContainerDbIface
 dmap_container_db_add
-dmap_container_db_count
-dmap_container_db_foreach
 dmap_container_db_lookup_by_id
+dmap_container_db_foreach
+dmap_container_db_count
 <SUBSECTION Standard>
 DMAP_CONTAINER_DB
 DMAP_CONTAINER_DB_GET_INTERFACE
@@ -159,10 +154,10 @@ dmap_container_db_get_type
 <FILE>dmap-container-record</FILE>
 <TITLE>DMAPContainerRecord</TITLE>
 DMAPContainerRecordIface
-dmap_container_record_add_entry
-dmap_container_record_get_entries
-dmap_container_record_get_entry_count
 dmap_container_record_get_id
+dmap_container_record_add_entry
+dmap_container_record_get_entry_count
+dmap_container_record_get_entries
 <SUBSECTION Standard>
 DMAP_CONTAINER_RECORD
 DMAP_CONTAINER_RECORD_GET_INTERFACE
@@ -177,13 +172,13 @@ dmap_container_record_get_type
 DMAPDbIface
 RecordGetValueFunc
 dmap_db_add
-dmap_db_add_path
 dmap_db_add_with_id
-dmap_db_apply_filter
-dmap_db_count
-dmap_db_foreach
+dmap_db_add_path
 dmap_db_lookup_by_id
 dmap_db_lookup_id_by_location
+dmap_db_foreach
+dmap_db_count
+dmap_db_apply_filter
 <SUBSECTION Standard>
 DMAP_DB
 DMAP_DB_GET_INTERFACE
@@ -217,9 +212,9 @@ dmap_type_get_type
 
 <SECTION>
 <FILE>dmap-gst-input-stream</FILE>
+kill_pipeline
 dmap_gst_input_stream_new
 dmapd_input_stream_strdup_format_extension
-kill_pipeline
 <SUBSECTION Standard>
 DMAPGstInputStreamPrivate
 DMAP_GST_INPUT_STREAM
@@ -247,6 +242,21 @@ dmap_gst_mp3_input_stream_get_type
 </SECTION>
 
 <SECTION>
+<FILE>dmap-gst-qt-input-stream</FILE>
+DMAP_GST_QT_INPUT_STREAM_GET_PRIVATE
+dmap_gst_qt_input_stream_new
+<SUBSECTION Standard>
+DMAPGstQtInputStreamPrivate
+DMAP_GST_QT_INPUT_STREAM
+DMAP_GST_QT_INPUT_STREAM_CLASS
+DMAP_GST_QT_INPUT_STREAM_GET_CLASS
+DMAP_TYPE_GST_QT_INPUT_STREAM
+IS_DMAP_GST_QT_INPUT_STREAM
+IS_DMAP_GST_QT_INPUT_STREAM_CLASS
+dmap_gst_qt_input_stream_get_type
+</SECTION>
+
+<SECTION>
 <FILE>dmap-gst-wav-input-stream</FILE>
 DMAP_GST_WAV_INPUT_STREAM_GET_PRIVATE
 dmap_gst_wav_input_stream_new
@@ -264,18 +274,18 @@ dmap_gst_wav_input_stream_get_type
 <SECTION>
 <FILE>dmap-mdns-browser</FILE>
 <TITLE>DMAPMdnsBrowser</TITLE>
-DMAPMdnsBrowserClass
-DMAPMdnsBrowserError
-DMAPMdnsBrowserService
 DMAPMdnsBrowserServiceType
 DMAPMdnsBrowserTransportProtocol
+DMAPMdnsBrowserError
+DMAPMdnsBrowserService
+DMAPMdnsBrowserClass
 DMAP_MDNS_BROWSER_ERROR
 dmap_mdns_browser_error_quark
-dmap_mdns_browser_get_service_type
-dmap_mdns_browser_get_services
 dmap_mdns_browser_new
 dmap_mdns_browser_start
 dmap_mdns_browser_stop
+dmap_mdns_browser_get_services
+dmap_mdns_browser_get_service_type
 <SUBSECTION Standard>
 DMAPMdnsBrowserPrivate
 DMAP_MDNS_BROWSER
@@ -288,13 +298,23 @@ dmap_mdns_browser_get_type
 </SECTION>
 
 <SECTION>
+<FILE>dmap-private-utils</FILE>
+DMAP_READ_UINT64_BE
+DMAP_READ_UINT32_BE
+DMAP_READ_UINT16_BE
+DMAP_READ_UINT8
+dmap_write_next_chunk
+dmap_chunked_message_finished
+</SECTION>
+
+<SECTION>
 <FILE>dmap-record</FILE>
 <TITLE>DMAPRecord</TITLE>
-DMAPMediaKind
 DMAPRecordIface
 bitwise
-dmap_record_set_from_blob
+DMAPMediaKind
 dmap_record_to_blob
+dmap_record_set_from_blob
 <SUBSECTION Standard>
 DMAP_RECORD
 DMAP_RECORD_GET_INTERFACE
@@ -318,24 +338,24 @@ dmap_record_factory_get_type
 
 <SECTION>
 <FILE>dmap-share</FILE>
-DMAPMetaDataMap
 DMAP_STATUS_OK
-add_entry_to_mlcl
-content_codes
-ctrl_int
-databases
-databases_browse_xxx
-databases_items_xxx
-dmap_share_free_filter
+DMAPMetaDataMap
 get_desired_port
 get_type_of_service
+message_add_standard_headers
+add_entry_to_mlcl
+databases_browse_xxx
+databases_items_xxx
+server_info
+content_codes
 login
 logout
-message_add_standard_headers
-name_collision
-published
-server_info
 update
+ctrl_int
+published
+name_collision
+databases
+dmap_share_free_filter
 <SUBSECTION Standard>
 DMAPSharePrivate
 DMAP_SHARE

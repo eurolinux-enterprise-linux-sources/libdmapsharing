@@ -1,5 +1,5 @@
 <!-- ##### SECTION Title ##### -->
-dmap
+dmap-gst-qt-input-stream
 
 <!-- ##### SECTION Short_Description ##### -->
 
@@ -18,5 +18,22 @@ dmap
 
 
 <!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO DMAP_GST_QT_INPUT_STREAM_GET_PRIVATE ##### -->
+<para>
+
+</para>
+
+@o: 
+
+
+<!-- ##### FUNCTION dmap_gst_qt_input_stream_new ##### -->
+<para>
+
+</para>
+
+@stream: 
+@Returns: 
 
 

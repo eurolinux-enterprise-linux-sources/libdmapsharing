@@ -31,6 +31,15 @@ DMAPContainerRecord
 @get_entry_count: 
 @get_entries: 
 
+<!-- ##### FUNCTION dmap_container_record_get_id ##### -->
+<para>
+
+</para>
+
+@record: 
+@Returns: 
+
+
 <!-- ##### FUNCTION dmap_container_record_add_entry ##### -->
 <para>
 
@@ -39,15 +48,6 @@ DMAPContainerRecord
 @container_record: 
 @record: 
 @id: 
-
-
-<!-- ##### FUNCTION dmap_container_record_get_entries ##### -->
-<para>
-
-</para>
-
-@record: 
-@Returns: 
 
 
 <!-- ##### FUNCTION dmap_container_record_get_entry_count ##### -->
@@ -59,7 +59,7 @@ DMAPContainerRecord
 @Returns: 
 
 
-<!-- ##### FUNCTION dmap_container_record_get_id ##### -->
+<!-- ##### FUNCTION dmap_container_record_get_entries ##### -->
 <para>
 
 </para>

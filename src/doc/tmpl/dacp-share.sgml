@@ -20,61 +20,6 @@ dacp-share
 <!-- ##### SECTION Image ##### -->
 
 
-<!-- ##### USER_FUNCTION add_guid ##### -->
-<para>
-
-</para>
-
-@share: 
-@guid: 
-
-
-<!-- ##### FUNCTION dacp_share_new ##### -->
-<para>
-
-</para>
-
-@library_name: 
-@player: 
-@db: 
-@container_db: 
-@Returns: 
-
-
-<!-- ##### FUNCTION dacp_share_pair ##### -->
-<para>
-
-</para>
-
-@share: 
-@service_name: 
-@passcode: 
-
-
-<!-- ##### FUNCTION dacp_share_player_updated ##### -->
-<para>
-
-</para>
-
-@share: 
-
-
-<!-- ##### FUNCTION dacp_share_start_lookup ##### -->
-<para>
-
-</para>
-
-@share: 
-
-
-<!-- ##### FUNCTION dacp_share_stop_lookup ##### -->
-<para>
-
-</para>
-
-@share: 
-
-
 <!-- ##### USER_FUNCTION lookup_guid ##### -->
 <para>
 
@@ -83,6 +28,15 @@ dacp-share
 @share: 
 @guid: 
 @Returns: 
+
+
+<!-- ##### USER_FUNCTION add_guid ##### -->
+<para>
+
+</para>
+
+@share: 
+@guid: 
 
 
 <!-- ##### USER_FUNCTION remote_found ##### -->
@@ -112,5 +66,51 @@ dacp-share
 @share: 
 @service_name: 
 @connected: 
+
+
+<!-- ##### FUNCTION dacp_share_new ##### -->
+<para>
+
+</para>
+
+@library_name: 
+@player: 
+@db: 
+@container_db: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dacp_share_pair ##### -->
+<para>
+
+</para>
+
+@share: 
+@service_name: 
+@passcode: 
+
+
+<!-- ##### FUNCTION dacp_share_start_lookup ##### -->
+<para>
+
+</para>
+
+@share: 
+
+
+<!-- ##### FUNCTION dacp_share_stop_lookup ##### -->
+<para>
+
+</para>
+
+@share: 
+
+
+<!-- ##### FUNCTION dacp_share_player_updated ##### -->
+<para>
+
+</para>
+
+@share: 
 
 

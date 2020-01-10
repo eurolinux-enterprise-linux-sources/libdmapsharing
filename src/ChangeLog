@@ -1,3 +1,503 @@
+commit c479d652cb930bb6a5c7fdc59cd079dd5c4cc3f7
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Feb 7 20:45:04 2015 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit f4092fe842e1a2c211b527aed4ad8e5a96e28089
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Feb 7 20:41:47 2015 -0500
+
+    DNSSD backend: Always send TXT record Password=true or false, as iTunes 12.1.0.50 requires this
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit a2d8b2f228484fc4b614ce1062c7bdc4fa878982
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Feb 7 20:33:43 2015 -0500
+
+    Add to TODO
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 043d696331668d2200832ed4414e1a209e58bdfa
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Sep 1 14:58:16 2014 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 1f6ae2a6d01fac70106ddac862c64b3cec0717ef
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Sep 1 14:55:44 2014 -0400
+
+    Make building tests optional
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 7e9d2bf7347c13efd21a2774e8491b97f3537ad9
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Aug 9 21:07:43 2014 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit dc7f7fcf10acd184bbfb359de50a1f1310d3366e
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Aug 9 21:06:42 2014 -0400
+
+    Fix configure script to better detect if we should build Vala code
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 11713585800c3a898564b0c3d66cd09d3ce376dc
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Aug 5 15:21:45 2014 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit dc2f29bb515334cdeb921ddf680163357816a15c
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Aug 5 15:17:38 2014 -0400
+
+    Fix mismatched DMAPMetaDataMap struct typedef
+    
+    A mismatched struct typedef in dmap-share.h confuses GObject introspection
+    into producing an error when the original struct is defined. The typedef
+    of DMAPMetaDataMap asks for struct _DMAPMetaDataMap, but the actual
+    struct definition says struct DMAPMetaDataMap. gir will complain about
+    namespace conflicts and abort a jhbuild build as a result.
+    
+    Thanks to Pietro Gagliardi and gregier in irc.gimp.net/#gtk+ who helped
+    Pietro.
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit c2bf5a60486cb5bc33f47ed5df708ad24d0d5c15
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue May 27 16:18:11 2014 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit c1447ae3ae9574addab2fa9b82ca4f117609e222
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue May 27 16:10:56 2014 -0400
+
+    test/Makefile.am: add dmapcopy to EXTRA_DIST
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 06edb792b0459af2f0cfe82ca04e035901530c97
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Apr 29 21:00:56 2014 -0400
+
+    Update TODO
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 7557691ed7e303b1a7927c3003242cbd12e25608
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Apr 19 20:18:10 2014 -0400
+
+    update TODO
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit cea4b17cde4f8f8d567d2d4ac88db83d95dc9b3e
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Apr 19 20:16:48 2014 -0400
+
+    fix some compiler warnings
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 8ea1adb375998bf0df42cc63912cdbaec3c880e8
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Apr 19 19:29:31 2014 -0400
+
+    fix another spelling error
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 3e6ef8c75455af7adefba4de7ff85a16e9904f0d
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Apr 19 19:21:54 2014 -0400
+
+    fix spelling error
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 0e20a911ae6dee6636bfa72a912185b6626a87e6
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Apr 19 19:07:10 2014 -0400
+
+    silence builds by default
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 66907af4df8b8f9af37b36c6fddad86e2b062a86
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 11 20:03:31 2014 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit fbfd169b581d328df1b977dbcce6d2385bd271be
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 11 19:55:40 2014 -0400
+
+    Fix for "bytes=" check in daap-share.c; thanks Bastien Nocera
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 610a17d2fb60f9f4cb0fc754e0acd8a39c825dd0
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Mar 9 22:31:33 2014 -0400
+
+    Small change to a debug message
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 55a8417308cd3af0bc306d37c0a887080827c2b2
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Feb 2 23:12:35 2014 -0500
+
+    Do not use AM_CONDITIONAL within a shell conditional
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit e0261c16a0e6a64adc0f84f869e40518984ee5f6
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Nov 24 21:02:21 2013 -0500
+
+    Install libdmapsharing-3.0.vapi on "make install"
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 3e1b5933336dd3170527d2da2e234c8931520885
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Nov 24 14:19:11 2013 -0500
+
+    Update some Vala-related files
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 91879548a32c65b0897ecbe58aaafb7646743931
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Nov 24 14:17:30 2013 -0500
+
+    Some work related to GObject introspection (there is a lot of work remaining)
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 1da947bfbabba1567bdd9c5e2bbb082b8de7d0ec
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Nov 7 08:56:03 2013 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 0f6010e429430867f80ed9933228d69dac783679
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Nov 7 08:41:50 2013 -0500
+
+    Update libdmapsharing.spec
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 28d26ba51dac6565a796a4e2c68ad28f89af398f
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Oct 29 11:42:31 2013 +0100
+
+    Fix clang warning
+    
+    dmap-md5.c:187:26: warning: 'memset' call operates on objects of type 'MD5_CTX'
+    while the size is based on a different
+          type 'MD5_CTX *' [-Wsizeof-pointer-memaccess]
+            memset (ctx, 0, sizeof (ctx));  /* In case it's sensitive */
+                    ~~~             ^~~
+    
+    That should be "sizeof(*ctx)" instead.
+    
+    See https://bugzilla.redhat.com/show_bug.cgi?id=1023528
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711063
+
+commit 3e347fd3e8e7e20afc562268f27fd3c2b79f4d0e
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Oct 29 11:37:15 2013 +0100
+
+    Avoid OOB read with buggy servers
+    
+    If the server doesn't start the Content-Range field with "bytes="
+    we would have an out-of-bounds read trying to parse the content
+    of that field. Fall back to a 0 offset when a parsing error occurs.
+    
+    See https://bugzilla.redhat.com/show_bug.cgi?id=1024020
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711063
+
+commit 617164b22dbbe17490377c56f8a859541e9fcfdb
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Tue Oct 29 11:34:20 2013 +0100
+
+    Use strlen() instead of hard-coding string length
+    
+    This avoids hard to detect bugs when we want a different string length,
+    and will be optimised by the compiler anyway.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=711063
+
+commit 577b6705f5ef480721f894f1c2e79a62b36051f7
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Aug 25 19:52:35 2013 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 8c3fd3791a30cbe0d62f3cd9953a911fb6313e8b
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Aug 20 22:12:37 2013 -0400
+
+    Replace some assertions in dmap-gst-*-input-stream.c with error handling
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 77e846271dd5df841c6156d8a5a5eb8ded32f511
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Aug 15 23:18:27 2013 -0400
+
+    Fix daap-share.c:should_transcode()
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 6d7fdf43c72c8d9565ec373a27d1d241b640270d
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Jul 29 22:45:32 2013 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9b0ee6421c289dc0541e7c2faa4feae8f5356c47
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Jul 25 09:00:44 2013 -0400
+
+    Fix memory leak in transcoding code
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit df307421b4e2af834b4aa8494df6f36904604889
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Jul 24 22:48:52 2013 -0400
+
+    Remove double "end_time = "
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit f291351929d0978ac7c150f1073084e02ad4acac
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 19 20:29:46 2013 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit e70abfbe626396327c415e6c97bf4a4ebb93ee26
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 19 20:19:21 2013 -0400
+
+    Add hash to DMAP records
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 7ac190fdbdf6f8894d41a7bb11de7e7dd3c308cd
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Jul 17 23:28:55 2013 -0400
+
+    Split out dmap_hash_progressive_to_string function
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 2a4009b2e16444b73ba03fe82453cc4630f77b66
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Jul 17 23:04:18 2013 -0400
+
+    Add progressive MD5 hash function
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9bf076380d0d2560c0e890f3799a3018131669c3
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 12 15:52:28 2013 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit d664c63012335926bacba4b3ea512e4b977fb224
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Jul 10 08:15:17 2013 -0400
+
+    Modify use of DNS_SD_CFLAGS in configure.ac
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 8508a6f7a7ae5e12c6c4e53c48157768e926e670
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Jul 7 14:47:03 2013 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 2b9fafd7dacf2d6828146fc1b0bd9565f3f6938f
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 5 10:14:05 2013 -0500
+
+    Require GLib2 >= 2.36 and fix some compile warnings in tests
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9a07b2301a1be2ff45b2366450280543ece5dcf4
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 5 09:53:34 2013 -0500
+
+    Fix up dmap.h and dmap-utils.h
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit b1895bc7de10b0a3a02a32c3bea1428de72d8538
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 5 09:44:54 2013 -0500
+
+    Update libdmapsharing.spec
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit d0d3fa7ba131b8f41d073b09ad31d217befa42ab
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Jul 5 09:43:52 2013 -0500
+
+    Get to compile without warnings
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9bbad5a272f9a8724926ae0486ca0118c0fb9069
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Jul 4 21:55:11 2013 -0500
+
+    Fix serving large videos
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit e4c27ba64b0d834a24a07285ce5273af43ec04ee
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Jun 26 21:10:26 2013 -0500
+
+    Fix handling of pre-transcoded video; now works with iTunes
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9950d3c0f236b4a164bb2a5b81b0cd14d9a7410b
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Jun 25 22:28:16 2013 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit b984744dfadb2a395d8896eebea66cdea16d2e78
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Tue Jun 25 22:27:05 2013 -0500
+
+    Export dmap_mime_to_format
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 4caf1556bda4b3260263d90575040c64be3a717c
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Jun 24 20:10:32 2013 -0500
+
+    Update transcoders and add (still broken) QuickTime transcoder
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit e467ade699eab1ed5f0505f5fd03999700618d55
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Jun 23 21:45:04 2013 -0500
+
+    Update to TODO: remember cause of bug with current libsoup
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 8aec4065402a46dbe2b51e0cdae2fda540fac113
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 14:05:18 2013 -0500
+
+    Regenerate libdmapsharing-3.0-docs.xml
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 02453cb82a98f098679b2e0579f7cc05a1297ca4
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:54:42 2013 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 8251282142814ee842ccbc1c1d9997dfee2b8f45
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:53:41 2013 -0500
+
+    Fix misspelling of received
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit f4c008e060338d2bdac2102cea7d170ec74b6d6a
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:37:37 2013 -0500
+
+    Recompile Vala code with libgee-0.8
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit c123492837d3b869f101536b13decd611e2000c3
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:28:03 2013 -0500
+
+    autogen.sh: touch ChangeLog before running GNU autotools
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 668f2c467c5e7dade3aaa21e78d63be37032ab49
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:26:08 2013 -0500
+
+    Clean up "make clean" in vala directory a bit
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 6dd8492b7688695fd8b2941f1be1cb647cdc6325
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Apr 12 13:25:07 2013 -0500
+
+    Make ChangeLog generator in autogen.sh more clear
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
 commit 1c9ee1a31e50e81680ffb87eeb5d90e4ca928601
 Author: W. Michael Petullo <mike@flyn.org>
 Date:   Tue Dec 4 10:32:45 2012 -0600

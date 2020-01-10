@@ -63,7 +63,7 @@ create_share (guint conn_type)
 					(dmap_container_record));
 	DMAPRecordFactory *factory;
 	DMAPRecord *record;
-	DMAPShare *share;
+	DMAPShare *share = NULL;
 	DMAPDb *db;
 
 	if (conn_type == DAAP) { 
@@ -94,6 +94,8 @@ create_share (guint conn_type)
 						    NULL));
 	}
 
+	g_assert (NULL != share);
+
 	g_free (name);
 }
 
@@ -105,9 +107,6 @@ main (int argc, char *argv[])
 
 	if (argc == 2)
 		conn_type = atoi (argv[1]);
-
-	g_type_init ();
-	g_thread_init (NULL);
 
 	loop = g_main_loop_new (NULL, FALSE);
 

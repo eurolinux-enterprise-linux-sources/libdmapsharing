@@ -108,3 +108,6 @@
 
 /* Define if mDNS/DNS-SD implementation uses Howl */
 #undef WITH_HOWL
+
+/* Defined when tests are to be built */
+#undef WITH_TESTS

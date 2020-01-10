@@ -13,6 +13,7 @@ dmap_container_record_get_type
 dmap_db_get_type
 dmap_gst_input_stream_get_type
 dmap_gst_mp3_input_stream_get_type
+dmap_gst_qt_input_stream_get_type
 dmap_gst_wav_input_stream_get_type
 dmap_mdns_browser_error_get_type
 dmap_mdns_browser_get_type

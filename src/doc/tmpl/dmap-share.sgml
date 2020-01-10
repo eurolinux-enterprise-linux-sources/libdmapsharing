@@ -20,17 +20,44 @@ dmap-share
 <!-- ##### SECTION Image ##### -->
 
 
-<!-- ##### STRUCT DMAPMetaDataMap ##### -->
-<para>
-
-</para>
-
-
 <!-- ##### MACRO DMAP_STATUS_OK ##### -->
 <para>
 
 </para>
 
+
+
+<!-- ##### TYPEDEF DMAPMetaDataMap ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### USER_FUNCTION get_desired_port ##### -->
+<para>
+
+</para>
+
+@share: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION get_type_of_service ##### -->
+<para>
+
+</para>
+
+@share: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION message_add_standard_headers ##### -->
+<para>
+
+</para>
+
+@share: 
+@msg: 
 
 
 <!-- ##### USER_FUNCTION add_entry_to_mlcl ##### -->
@@ -41,45 +68,6 @@ dmap-share
 @id: 
 @record: 
 @mb: 
-
-
-<!-- ##### USER_FUNCTION content_codes ##### -->
-<para>
-
-</para>
-
-@share: 
-@server: 
-@message: 
-@path: 
-@query: 
-@ctx: 
-
-
-<!-- ##### USER_FUNCTION ctrl_int ##### -->
-<para>
-
-</para>
-
-@share: 
-@server: 
-@message: 
-@path: 
-@query: 
-@ctx: 
-
-
-<!-- ##### USER_FUNCTION databases ##### -->
-<para>
-
-</para>
-
-@share: 
-@server: 
-@message: 
-@path: 
-@query: 
-@context: 
 
 
 <!-- ##### USER_FUNCTION databases_browse_xxx ##### -->
@@ -108,30 +96,30 @@ dmap-share
 @context: 
 
 
-<!-- ##### FUNCTION dmap_share_free_filter ##### -->
-<para>
-
-</para>
-
-@filter: 
-
-
-<!-- ##### USER_FUNCTION get_desired_port ##### -->
+<!-- ##### USER_FUNCTION server_info ##### -->
 <para>
 
 </para>
 
 @share: 
-@Returns: 
+@server: 
+@message: 
+@path: 
+@query: 
+@ctx: 
 
 
-<!-- ##### USER_FUNCTION get_type_of_service ##### -->
+<!-- ##### USER_FUNCTION content_codes ##### -->
 <para>
 
 </para>
 
 @share: 
-@Returns: 
+@server: 
+@message: 
+@path: 
+@query: 
+@ctx: 
 
 
 <!-- ##### USER_FUNCTION login ##### -->
@@ -160,23 +148,30 @@ dmap-share
 @ctx: 
 
 
-<!-- ##### USER_FUNCTION message_add_standard_headers ##### -->
+<!-- ##### USER_FUNCTION update ##### -->
 <para>
 
 </para>
 
 @share: 
-@msg: 
+@server: 
+@message: 
+@path: 
+@query: 
+@ctx: 
 
 
-<!-- ##### USER_FUNCTION name_collision ##### -->
+<!-- ##### USER_FUNCTION ctrl_int ##### -->
 <para>
 
 </para>
 
 @share: 
-@publisher: 
-@name: 
+@server: 
+@message: 
+@path: 
+@query: 
+@ctx: 
 
 
 <!-- ##### USER_FUNCTION published ##### -->
@@ -189,7 +184,17 @@ dmap-share
 @name: 
 
 
-<!-- ##### USER_FUNCTION server_info ##### -->
+<!-- ##### USER_FUNCTION name_collision ##### -->
+<para>
+
+</para>
+
+@share: 
+@publisher: 
+@name: 
+
+
+<!-- ##### USER_FUNCTION databases ##### -->
 <para>
 
 </para>
@@ -199,19 +204,14 @@ dmap-share
 @message: 
 @path: 
 @query: 
-@ctx: 
+@context: 
 
 
-<!-- ##### USER_FUNCTION update ##### -->
+<!-- ##### FUNCTION dmap_share_free_filter ##### -->
 <para>
 
 </para>
 
-@share: 
-@server: 
-@message: 
-@path: 
-@query: 
-@ctx: 
+@filter: 
 
 

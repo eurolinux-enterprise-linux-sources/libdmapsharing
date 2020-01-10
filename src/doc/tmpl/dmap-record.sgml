@@ -20,16 +20,6 @@ DMAPRecord
 <!-- ##### SECTION Image ##### -->
 
 
-<!-- ##### ENUM DMAPMediaKind ##### -->
-<para>
-
-</para>
-
-@DMAP_MEDIA_KIND_MUSIC: 
-@DMAP_MEDIA_KIND_MOVIE: 
-@DMAP_MEDIA_KIND_PODCAST: 
-@DMAP_MEDIA_KIND_TV_SHOW: 
-
 <!-- ##### STRUCT DMAPRecordIface ##### -->
 <para>
 
@@ -45,15 +35,15 @@ DMAPRecord
 </para>
 
 
-<!-- ##### FUNCTION dmap_record_set_from_blob ##### -->
+<!-- ##### ENUM DMAPMediaKind ##### -->
 <para>
 
 </para>
 
-@record: 
-@blob: 
-@Returns: 
-
+@DMAP_MEDIA_KIND_MUSIC: 
+@DMAP_MEDIA_KIND_MOVIE: 
+@DMAP_MEDIA_KIND_PODCAST: 
+@DMAP_MEDIA_KIND_TV_SHOW: 
 
 <!-- ##### FUNCTION dmap_record_to_blob ##### -->
 <para>
@@ -61,6 +51,16 @@ DMAPRecord
 </para>
 
 @record: 
+@Returns: 
+
+
+<!-- ##### FUNCTION dmap_record_set_from_blob ##### -->
+<para>
+
+</para>
+
+@record: 
+@blob: 
 @Returns: 
 
 
