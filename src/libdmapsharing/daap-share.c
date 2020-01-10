@@ -185,7 +185,7 @@ daap_share_message_add_standard_headers (DMAPShare * share,
 					 SoupMessage * message)
 {
 	soup_message_headers_append (message->response_headers, "DMAP-Server",
-				     "libdmapsharing" "VERSION");
+				     "libdmapsharing" VERSION);
 }
 
 #define DMAP_VERSION 2.0
@@ -415,11 +415,7 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 	GError *error = NULL;
 	ChunkData *cd = NULL;
 
-	cd = g_new (ChunkData, 1);
-	if (NULL == cd) {
-		g_warning ("Error allocating chunk\n");
-		goto _error;
-	}
+	cd = g_new0 (ChunkData, 1);
 
 	g_object_get (record, "location", &location, "has-video", &has_video, NULL);
 	if (NULL == location) {
@@ -489,13 +485,8 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 		soup_message_headers_set_content_length (message->response_headers, filesize);
 	} else if (soup_message_get_http_version (message) == SOUP_HTTP_1_0) {
 		/* NOTE: Roku clients support only HTTP 1.0. */
-#ifdef HAVE_ENCODING_EOF
 		g_debug ("Using HTTP 1.0 encoding.");
 		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_EOF);
-#else
-		g_warning ("Received HTTP 1.0 request, but not built with HTTP 1.0 support");
-		soup_message_headers_set_encoding (message->response_headers, SOUP_ENCODING_CHUNKED);
-#endif
 	} else {
 		/* NOTE: Can not provide Content-Length when performing
 		 * real-time transcoding.
@@ -523,6 +514,10 @@ _error:
 	soup_message_set_status (message, SOUP_STATUS_INTERNAL_SERVER_ERROR);
 
 	if (NULL != cd) {
+		if (NULL != cd->stream) {
+			g_input_stream_close (cd->stream, NULL, NULL);
+		}
+
 		g_free (cd);
 	}
 
@@ -537,11 +532,7 @@ _error:
 	if (NULL != error) {
 		g_error_free (error);
 	}
-	
-	if (NULL != cd->stream) {
-		g_input_stream_close (cd->stream, NULL, NULL);
-	}
-	
+
 	if (NULL != stream) {
 		g_input_stream_close (stream, NULL, NULL);
 	}

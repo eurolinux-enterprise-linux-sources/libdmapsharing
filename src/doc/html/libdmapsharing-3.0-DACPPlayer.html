@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>libdmapsharing-3.0 Reference Manual: DACPPlayer</title>
+<title>DACPPlayer: libdmapsharing-3.0 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="libdmapsharing-3.0 Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="up" href="ch01.html" title="Libdmapsharing overview">
 <link rel="prev" href="libdmapsharing-3.0-dacp-connection.html" title="dacp-connection">
 <link rel="next" href="libdmapsharing-3.0-dacp-share.html" title="dacp-share">
-<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -149,7 +149,7 @@
 <pre class="programlisting"><span class="returnvalue">DAAPRecord</span> *
 dacp_player_now_playing_record (<em class="parameter"><code><span class="type">DACPPlayer</span> *player</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.2.4"></a><h4>Parameters</h4>
+<a name="dacp-player-now-playing-record.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -163,10 +163,6 @@ dacp_player_now_playing_record (<em class="parameter"><code><span class="type">D
 </tr></tbody>
 </table></div>
 </div>
-<div class="refsect3">
-<a name="id-1.2.6.7.2.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -176,7 +172,7 @@ dacp_player_now_playing_artwork (<em class="parameter"><code><span class="type">
                                  <em class="parameter"><code><span class="type">guint</span> width</code></em>,
                                  <em class="parameter"><code><span class="type">guint</span> height</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.3.4"></a><h4>Parameters</h4>
+<a name="dacp-player-now-playing-artwork.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -202,10 +198,6 @@ dacp_player_now_playing_artwork (<em class="parameter"><code><span class="type">
 </tbody>
 </table></div>
 </div>
-<div class="refsect3">
-<a name="id-1.2.6.7.3.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -213,7 +205,7 @@ dacp_player_now_playing_artwork (<em class="parameter"><code><span class="type">
 <pre class="programlisting"><span class="returnvalue">void</span>
 dacp_player_play_pause (<em class="parameter"><code><span class="type">DACPPlayer</span> *player</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.4.4"></a><h4>Parameters</h4>
+<a name="dacp-player-play-pause.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -234,7 +226,7 @@ dacp_player_play_pause (<em class="parameter"><code><span class="type">DACPPlaye
 <pre class="programlisting"><span class="returnvalue">void</span>
 dacp_player_pause (<em class="parameter"><code><span class="type">DACPPlayer</span> *player</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.5.4"></a><h4>Parameters</h4>
+<a name="dacp-player-pause.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -255,7 +247,7 @@ dacp_player_pause (<em class="parameter"><code><span class="type">DACPPlayer</sp
 <pre class="programlisting"><span class="returnvalue">void</span>
 dacp_player_next_item (<em class="parameter"><code><span class="type">DACPPlayer</span> *player</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.6.4"></a><h4>Parameters</h4>
+<a name="dacp-player-next-item.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -284,7 +276,7 @@ dacp_player_prev_item (<em class="parameter"><code><span class="type">DACPPlayer
 <pre class="programlisting"><span class="returnvalue">void</span>
 dacp_player_cue_clear (<em class="parameter"><code><span class="type">DACPPlayer</span> *player</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.8.4"></a><h4>Parameters</h4>
+<a name="dacp-player-cue-clear.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -307,7 +299,7 @@ dacp_player_cue_play (<em class="parameter"><code><span class="type">DACPPlayer<
                       <em class="parameter"><code><span class="type">GList</span> *records</code></em>,
                       <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.6.7.9.4"></a><h4>Parameters</h4>
+<a name="dacp-player-cue-play.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -342,7 +334,7 @@ dacp_player_cue_play (<em class="parameter"><code><span class="type">DACPPlayer<
 <p>
 </p>
 <div class="refsect3">
-<a name="id-1.2.6.8.2.4"></a><h4>Members</h4>
+<a name="DACPRepeatState.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -375,7 +367,7 @@ dacp_player_cue_play (<em class="parameter"><code><span class="type">DACPPlayer<
 <p>
 </p>
 <div class="refsect3">
-<a name="id-1.2.6.8.3.4"></a><h4>Members</h4>
+<a name="DACPPlayState.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -426,7 +418,6 @@ dacp_player_cue_play (<em class="parameter"><code><span class="type">DACPPlayer<
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

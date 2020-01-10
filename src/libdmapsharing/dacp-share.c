@@ -388,11 +388,11 @@ mdns_remote_added (DMAPMdnsBrowser * browser,
 {
 	DACPRemoteInfo *remote_info;
 
-	remote_info = g_new (DACPRemoteInfo, 1);
+	remote_info = g_new0 (DACPRemoteInfo, 1);
 	remote_info->host = g_strdup (service->host);
 	remote_info->port = service->port;
-	remote_info->connection = NULL;
 	remote_info->pair_txt = g_strdup (service->pair);
+	remote_info->connection = NULL;
 
 	g_debug ("New Remote found: %s name=%s host=%s port=%u pair=%s",
 		 service->service_name,
@@ -531,36 +531,17 @@ dacp_share_send_playstatusupdate (DACPShare * share)
 	GSList *list;
 	SoupServer *server = NULL;
 
-	g_object_get (share, "server-ipv4", &server, NULL);
+	g_object_get (share, "server", &server, NULL);
 	if (server) {
 		for (list = share->priv->update_queue; list;
 		     list = list->next) {
 			dacp_share_fill_playstatusupdate (share,
-							  (SoupMessage *)
-							  list->data);
+			                                  (SoupMessage*) list->data);
 			soup_server_unpause_message (server,
-						     (SoupMessage *)
-						     list->data);
+			                             (SoupMessage*) list->data);
 		}
 		g_object_unref (server);
 	}
-
-	server = NULL;
-
-	g_object_get (share, "server-ipv6", &server, NULL);
-	if (server) {
-		for (list = share->priv->update_queue; list;
-		     list = list->next) {
-			dacp_share_fill_playstatusupdate (share,
-							  (SoupMessage *)
-							  list->data);
-			soup_server_unpause_message (server,
-						     (SoupMessage *)
-						     list->data);
-		}
-		g_object_unref (server);
-	}
-
 	g_slist_free (share->priv->update_queue);
 	share->priv->update_queue = NULL;
 }

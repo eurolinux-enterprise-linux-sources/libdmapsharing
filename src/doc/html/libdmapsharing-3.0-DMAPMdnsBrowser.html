@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>libdmapsharing-3.0 Reference Manual: DMAPMdnsBrowser</title>
+<title>DMAPMdnsBrowser: libdmapsharing-3.0 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="libdmapsharing-3.0 Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="up" href="ch01.html" title="Libdmapsharing overview">
 <link rel="prev" href="libdmapsharing-3.0-dmap-gst-wav-input-stream.html" title="dmap-gst-wav-input-stream">
 <link rel="next" href="libdmapsharing-3.0-DMAPRecord.html" title="DMAPRecord">
-<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -146,10 +146,6 @@
 dmap_mdns_browser_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.16.7.2.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -158,7 +154,7 @@ dmap_mdns_browser_error_quark (<em class="parameter"><code><span class="type">vo
 dmap_mdns_browser_new (<em class="parameter"><code><a class="link" href="libdmapsharing-3.0-DMAPMdnsBrowser.html#DMAPMdnsBrowserServiceType" title="enum DMAPMdnsBrowserServiceType"><span class="type">DMAPMdnsBrowserServiceType</span></a> type</code></em>);</pre>
 <p>Creates a new mDNS browser.</p>
 <div class="refsect3">
-<a name="id-1.2.16.7.3.5"></a><h4>Parameters</h4>
+<a name="dmap-mdns-browser-new.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -173,9 +169,8 @@ dmap_mdns_browser_new (<em class="parameter"><code><a class="link" href="libdmap
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.16.7.3.6"></a><h4>Returns</h4>
+<a name="dmap-mdns-browser-new.returns"></a><h4>Returns</h4>
 <p> a pointer to a DMAPMdnsBrowser.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -186,7 +181,7 @@ dmap_mdns_browser_start (<em class="parameter"><code><span class="type">DMAPMdns
                          <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
 <p>Starts a DMAPMdnsBrowser.</p>
 <div class="refsect3">
-<a name="id-1.2.16.7.4.5"></a><h4>Parameters</h4>
+<a name="dmap-mdns-browser-start.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -208,9 +203,8 @@ dmap_mdns_browser_start (<em class="parameter"><code><span class="type">DMAPMdns
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.16.7.4.6"></a><h4>Returns</h4>
+<a name="dmap-mdns-browser-start.returns"></a><h4>Returns</h4>
 <p> TRUE on success, else FALSE.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -221,7 +215,7 @@ dmap_mdns_browser_stop (<em class="parameter"><code><span class="type">DMAPMdnsB
                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
 <p>Stops a DMAPMdnsBrowser.</p>
 <div class="refsect3">
-<a name="id-1.2.16.7.5.5"></a><h4>Parameters</h4>
+<a name="dmap-mdns-browser-stop.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -243,9 +237,8 @@ dmap_mdns_browser_stop (<em class="parameter"><code><span class="type">DMAPMdnsB
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.16.7.5.6"></a><h4>Returns</h4>
+<a name="dmap-mdns-browser-stop.returns"></a><h4>Returns</h4>
 <p> TRUE on success, else FALSE.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -255,10 +248,6 @@ dmap_mdns_browser_stop (<em class="parameter"><code><span class="type">DMAPMdnsB
 dmap_mdns_browser_get_services (<em class="parameter"><code><span class="type">DMAPMdnsBrowser</span> *browser</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.16.7.6.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -267,10 +256,6 @@ dmap_mdns_browser_get_services (<em class="parameter"><code><span class="type">D
 dmap_mdns_browser_get_service_type (<em class="parameter"><code><span class="type">DMAPMdnsBrowser</span> *browser</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.16.7.7.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 </div>
 <div class="refsect1">
@@ -280,7 +265,7 @@ dmap_mdns_browser_get_service_type (<em class="parameter"><code><span class="typ
 <p>
 </p>
 <div class="refsect3">
-<a name="id-1.2.16.8.2.4"></a><h4>Members</h4>
+<a name="DMAPMdnsBrowserServiceType.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -328,7 +313,7 @@ dmap_mdns_browser_get_service_type (<em class="parameter"><code><span class="typ
 <p>
 </p>
 <div class="refsect3">
-<a name="id-1.2.16.8.3.4"></a><h4>Members</h4>
+<a name="DMAPMdnsBrowserTransportProtocol.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -361,7 +346,7 @@ dmap_mdns_browser_get_service_type (<em class="parameter"><code><span class="typ
 <p>
 </p>
 <div class="refsect3">
-<a name="id-1.2.16.8.4.4"></a><h4>Members</h4>
+<a name="DMAPMdnsBrowserError.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -425,7 +410,6 @@ dmap_mdns_browser_get_service_type (<em class="parameter"><code><span class="typ
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

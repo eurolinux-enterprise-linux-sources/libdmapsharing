@@ -191,7 +191,7 @@ dpap_share_message_add_standard_headers (DMAPShare * share,
 					 SoupMessage * message)
 {
 	soup_message_headers_append (message->response_headers, "DPAP-Server",
-				     "libdmapsharing" "VERSION");
+				     "libdmapsharing" VERSION);
 }
 
 #define DMAP_VERSION 2.0
@@ -514,7 +514,7 @@ send_chunked_file (SoupServer * server, SoupMessage * message,
 	GInputStream *stream;
 	const char *location;
 	GError *error = NULL;
-	ChunkData *cd = g_new (ChunkData, 1);
+	ChunkData *cd = g_new0 (ChunkData, 1);
 
 	g_object_get (record, "location", &location, NULL);
 

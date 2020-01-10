@@ -1215,7 +1215,7 @@ dmap_connection_authenticate_message (DMAPConnection * connection, SoupSession *
 void
 dmap_connection_setup (DMAPConnection * connection)
 {
-	connection->priv->session = soup_session_async_new ();
+	connection->priv->session = soup_session_new ();
 
 	g_signal_connect (connection->priv->session, "authenticate", G_CALLBACK(authenticate_cb), connection);
 
@@ -1226,6 +1226,7 @@ dmap_connection_setup (DMAPConnection * connection)
 			   connection->priv->host);
 	soup_uri_set_port (connection->priv->base_uri,
 			   connection->priv->port);
+	soup_uri_set_path (connection->priv->base_uri, "");
 }
 
 // FIXME: it would be nice if this mirrored the use of DMAPMdnsBrowser. That is, connect callback handler to a signal.
@@ -1255,7 +1256,7 @@ dmap_connection_connect (DMAPConnection * connection,
 		g_strdup_printf ("daap://%s:%d", connection->priv->host,
 				 connection->priv->port);
 
-	rdata = g_new (ConnectionResponseData, 1);
+	rdata = g_new0 (ConnectionResponseData, 1);
 	rdata->connection = g_object_ref (connection);
 	rdata->callback = callback;
 	rdata->data = user_data;
@@ -1333,7 +1334,7 @@ dmap_connection_disconnect (DMAPConnection * connection,
 		// FIXME: GDK_THREADS_ENTER ();
 	}
 
-	rdata = g_new (ConnectionResponseData, 1);
+	rdata = g_new0 (ConnectionResponseData, 1);
 	rdata->connection = g_object_ref (connection);
 	rdata->callback = callback;
 	rdata->data = user_data;

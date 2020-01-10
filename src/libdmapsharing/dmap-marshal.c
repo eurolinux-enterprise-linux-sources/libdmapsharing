@@ -71,9 +71,9 @@ dmap_marshal_STRING__STRING (GClosure     *closure,
   typedef gchar* (*GMarshalFunc_STRING__STRING) (gpointer     data1,
                                                  gpointer     arg_1,
                                                  gpointer     data2);
-  register GMarshalFunc_STRING__STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_STRING__STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gchar* v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -117,9 +117,9 @@ dmap_marshal_VOID__ULONG_FLOAT (GClosure     *closure,
                                                   gulong       arg_1,
                                                   gfloat       arg_2,
                                                   gpointer     data2);
-  register GMarshalFunc_VOID__ULONG_FLOAT callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__ULONG_FLOAT callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -160,9 +160,9 @@ dmap_marshal_STRING__ULONG_ULONG (GClosure     *closure,
                                                       gulong       arg_1,
                                                       gulong       arg_2,
                                                       gpointer     data2);
-  register GMarshalFunc_STRING__ULONG_ULONG callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_STRING__ULONG_ULONG callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gchar* v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -205,9 +205,9 @@ dmap_marshal_ULONG__VOID (GClosure     *closure,
 {
   typedef gulong (*GMarshalFunc_ULONG__VOID) (gpointer     data1,
                                               gpointer     data2);
-  register GMarshalFunc_ULONG__VOID callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_ULONG__VOID callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gulong v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -250,9 +250,9 @@ dmap_marshal_VOID__STRING_STRING (GClosure     *closure,
                                                     gpointer     arg_1,
                                                     gpointer     arg_2,
                                                     gpointer     data2);
-  register GMarshalFunc_VOID__STRING_STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__STRING_STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -293,9 +293,9 @@ dmap_marshal_VOID__STRING_BOOLEAN (GClosure     *closure,
                                                      gpointer     arg_1,
                                                      gboolean     arg_2,
                                                      gpointer     data2);
-  register GMarshalFunc_VOID__STRING_BOOLEAN callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__STRING_BOOLEAN callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 3);
 
@@ -335,9 +335,9 @@ dmap_marshal_BOOLEAN__STRING (GClosure     *closure,
   typedef gboolean (*GMarshalFunc_BOOLEAN__STRING) (gpointer     data1,
                                                     gpointer     arg_1,
                                                     gpointer     data2);
-  register GMarshalFunc_BOOLEAN__STRING callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_BOOLEAN__STRING callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
   gboolean v_return;
 
   g_return_if_fail (return_value != NULL);
@@ -384,9 +384,9 @@ dmap_marshal_VOID__STRING_POINTER_POINTER_POINTER_BOOLEAN (GClosure     *closure
                                                                              gpointer     arg_4,
                                                                              gboolean     arg_5,
                                                                              gpointer     data2);
-  register GMarshalFunc_VOID__STRING_POINTER_POINTER_POINTER_BOOLEAN callback;
-  register GCClosure *cc = (GCClosure*) closure;
-  register gpointer data1, data2;
+  GMarshalFunc_VOID__STRING_POINTER_POINTER_POINTER_BOOLEAN callback;
+  GCClosure *cc = (GCClosure*) closure;
+  gpointer data1, data2;
 
   g_return_if_fail (n_param_values == 6);
 

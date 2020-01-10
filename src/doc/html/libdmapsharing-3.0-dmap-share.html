@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>libdmapsharing-3.0 Reference Manual: dmap-share</title>
+<title>dmap-share: libdmapsharing-3.0 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="libdmapsharing-3.0 Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="up" href="ch01.html" title="Libdmapsharing overview">
 <link rel="prev" href="libdmapsharing-3.0-DMAPRecordFactory.html" title="DMAPRecordFactory">
 <link rel="next" href="libdmapsharing-3.0-dpap-connection.html" title="dpap-connection">
-<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -201,10 +201,6 @@
 <span class="c_punctuation">(</span>*get_desired_port<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.19.6.2.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -213,17 +209,13 @@
 <span class="c_punctuation">(</span>*get_type_of_service<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.19.6.3.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="message-add-standard-headers"></a><h3>message_add_standard_headers ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*message_add_standard_headers<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-                                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>);</pre>
+                                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *msg</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -242,11 +234,11 @@
 <a name="databases-browse-xxx"></a><h3>databases_browse_xxx ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*databases_browse_xxx<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *msg</code></em>,
                          <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
                          <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -255,11 +247,11 @@
 <a name="databases-items-xxx"></a><h3>databases_items_xxx ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*databases_items_xxx<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *msg</code></em>,
+                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *msg</code></em>,
                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
                         <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -268,11 +260,11 @@
 <a name="server-info"></a><h3>server_info ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*server_info<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
                 <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
                 <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -281,11 +273,11 @@
 <a name="content-codes"></a><h3>content_codes ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*content_codes<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
                   <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
                   <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -294,11 +286,11 @@
 <a name="login"></a><h3>login ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*login<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
           <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
           <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -307,11 +299,11 @@
 <a name="logout"></a><h3>logout ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*logout<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
            <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
            <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -320,11 +312,11 @@
 <a name="update"></a><h3>update ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*update<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
            <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
            <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+           <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -333,11 +325,11 @@
 <a name="ctrl-int"></a><h3>ctrl_int ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*ctrl_int<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
              <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
              <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
+             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *ctx</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -366,11 +358,11 @@
 <a name="databases"></a><h3>databases ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*databases<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPShare</span> *share</code></em>,
-              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html"><span class="type">SoupServer</span></a> *server</code></em>,
-              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupMessage.html"><span class="type">SoupMessage</span></a> *message</code></em>,
+              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupServer-struct"><span class="type">SoupServer</span></a> *server</code></em>,
+              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupMessage.html#SoupMessage-struct"><span class="type">SoupMessage</span></a> *message</code></em>,
               <em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
               <em class="parameter"><code><span class="type">GHashTable</span> *query</code></em>,
-              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4/SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
+              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/libsoup-2.4SoupServer.html#SoupClientContext"><span class="type">SoupClientContext</span></a> *context</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -403,7 +395,6 @@ dmap_share_free_filter (<em class="parameter"><code><span class="type">GSList</s
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

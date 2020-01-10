@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>libdmapsharing-3.0 Reference Manual: DMAPDb</title>
+<title>DMAPDb: libdmapsharing-3.0 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="libdmapsharing-3.0 Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="up" href="ch01.html" title="Libdmapsharing overview">
 <link rel="prev" href="libdmapsharing-3.0-DMAPContainerRecord.html" title="DMAPContainerRecord">
 <link rel="next" href="libdmapsharing-3.0-dmap-enums.html" title="dmap-enums">
-<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -139,10 +139,6 @@
 <span class="c_punctuation">(</span>*RecordGetValueFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">DMAPRecord</span> *record</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.11.6.2.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -152,7 +148,7 @@ dmap_db_add (<em class="parameter"><code><span class="type">DMAPDb</span> *db</c
              <em class="parameter"><code><span class="type">DMAPRecord</span> *record</code></em>);</pre>
 <p>Add a record to the database.</p>
 <div class="refsect3">
-<a name="id-1.2.11.6.3.5"></a><h4>Parameters</h4>
+<a name="dmap-db-add.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -174,13 +170,12 @@ dmap_db_add (<em class="parameter"><code><span class="type">DMAPDb</span> *db</c
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.3.6"></a><h4>Returns</h4>
+<a name="dmap-db-add.returns"></a><h4>Returns</h4>
 <p> The ID for the newly added record. A reference to the record
 will be retained by the database (if required; an adapter-type
 implementation may not want to retain a reference as the record data may
 be placed elsewhere). In all cases, the record should be unrefed by the
 calling code.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -192,7 +187,7 @@ dmap_db_add_with_id (<em class="parameter"><code><span class="type">DMAPDb</span
                      <em class="parameter"><code><span class="type">guint</span> id</code></em>);</pre>
 <p>Add a record to the database and assign it the given ID.</p>
 <div class="refsect3">
-<a name="id-1.2.11.6.4.5"></a><h4>Parameters</h4>
+<a name="dmap-db-add-with-id.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -219,10 +214,9 @@ dmap_db_add_with_id (<em class="parameter"><code><span class="type">DMAPDb</span
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.4.6"></a><h4>Returns</h4>
+<a name="dmap-db-add-with-id.returns"></a><h4>Returns</h4>
 <p> The ID for the newly added record.</p>
 <p>See also the notes for dmap_db_add regarding reference counting.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -233,7 +227,7 @@ dmap_db_add_path (<em class="parameter"><code><span class="type">DMAPDb</span> *
                   <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
 <p>Create a record and add it to the database.</p>
 <div class="refsect3">
-<a name="id-1.2.11.6.5.5"></a><h4>Parameters</h4>
+<a name="dmap-db-add-path.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -255,10 +249,9 @@ dmap_db_add_path (<em class="parameter"><code><span class="type">DMAPDb</span> *
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.5.6"></a><h4>Returns</h4>
+<a name="dmap-db-add-path.returns"></a><h4>Returns</h4>
 <p> The ID for the newly added record.</p>
 <p>See also the notes for dmap_db_add regarding reference counting.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -268,7 +261,7 @@ dmap_db_add_path (<em class="parameter"><code><span class="type">DMAPDb</span> *
 dmap_db_lookup_by_id (<em class="parameter"><code>const <span class="type">DMAPDb</span> *db</code></em>,
                       <em class="parameter"><code><span class="type">guint</span> id</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.6.6.4"></a><h4>Parameters</h4>
+<a name="dmap-db-lookup-by-id.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -290,7 +283,7 @@ dmap_db_lookup_by_id (<em class="parameter"><code>const <span class="type">DMAPD
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.6.5"></a><h4>Returns</h4>
+<a name="dmap-db-lookup-by-id.returns"></a><h4>Returns</h4>
 <p> the database record corresponding to <em class="parameter"><code>id</code></em>
 . This record should
 be unrefed by the calling code when no longer required.</p>
@@ -303,7 +296,6 @@ transient record. That is, once the user is done using it, the returned
 record should be free'd because it is a adapter copy of the real record.
 In this case, the reference count should not be incremented before
 returning a record pointer.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -313,7 +305,7 @@ returning a record pointer.</p>
 dmap_db_lookup_id_by_location (<em class="parameter"><code>const <span class="type">DMAPDb</span> *db</code></em>,
                                <em class="parameter"><code>const <span class="type">gchar</span> *location</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.6.7.4"></a><h4>Parameters</h4>
+<a name="dmap-db-lookup-id-by-location.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -335,11 +327,10 @@ dmap_db_lookup_id_by_location (<em class="parameter"><code>const <span class="ty
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.7.5"></a><h4>Returns</h4>
+<a name="dmap-db-lookup-id-by-location.returns"></a><h4>Returns</h4>
 <p> the database id for the record corresponding to <em class="parameter"><code>path</code></em>
 or 0 if
 such a record does not exist.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -351,7 +342,7 @@ dmap_db_foreach (<em class="parameter"><code>const <span class="type">DMAPDb</sp
                  <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
 <p>Apply a function to each record in a media database.</p>
 <div class="refsect3">
-<a name="id-1.2.11.6.8.5"></a><h4>Parameters</h4>
+<a name="dmap-db-foreach.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -384,7 +375,7 @@ dmap_db_foreach (<em class="parameter"><code>const <span class="type">DMAPDb</sp
 <pre class="programlisting"><span class="returnvalue">gulong</span>
 dmap_db_count (<em class="parameter"><code>const <span class="type">DMAPDb</span> *db</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.6.9.4"></a><h4>Parameters</h4>
+<a name="dmap-db-count.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -399,9 +390,8 @@ dmap_db_count (<em class="parameter"><code>const <span class="type">DMAPDb</span
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.6.9.5"></a><h4>Returns</h4>
+<a name="dmap-db-count.returns"></a><h4>Returns</h4>
 <p> the number of records in the database.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -412,10 +402,6 @@ dmap_db_apply_filter (<em class="parameter"><code><span class="type">DMAPDb</spa
                       <em class="parameter"><code><span class="type">GSList</span> *filter_def</code></em>);</pre>
 <p>
 </p>
-<div class="refsect3">
-<a name="id-1.2.11.6.10.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 </div>
 <div class="refsect1">
@@ -441,7 +427,6 @@ dmap_db_apply_filter (<em class="parameter"><code><span class="type">DMAPDb</spa
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

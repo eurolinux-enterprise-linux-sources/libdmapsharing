@@ -1,3 +1,281 @@
+commit fd14b00fcfe33312ee2320c5d728f89e3671db21
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Nov 11 21:13:20 2016 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 0f94dbbae664218dbe6b2669b7f2fbf0331ab935
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Nov 11 21:03:08 2016 -0500
+
+    Update libdmapsharing.spec
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9e5647133672aa94bc105d0c17140455c04a323b
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Nov 11 20:52:02 2016 -0500
+
+    Use g_new0
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=773400
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit bd00cb9d86425e612ec5c63972533c3720136127
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Nov 11 20:22:50 2016 -0500
+
+    Do not use literal "VERSION"; use VERSION macro
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=773480
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 24b2e9ccb5ae4c6bd260b374aec1d2872c8732f1
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri Sep 18 11:49:59 2015 +0200
+
+    Remove memory failure check
+    
+    GLib never fails to allocate memory. At least not in a way that
+    applications can do anything about it.
+    
+    "If any call to allocate memory fails, the application is terminated.
+    This also means that there is no need to check if the call succeeded."
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=755210
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 6b3d20ec55b0fe69218e873a35871b93679c6c4f
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri Sep 16 08:23:01 2016 -0400
+
+    Small change to README
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 5dd534e957020b5d3a64b4ea08d6f1ce84a7ce58
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Aug 1 13:50:17 2016 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9b9e24afdeef6c2444912a4015a0730d163f5775
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Mon Aug 1 13:49:41 2016 -0400
+
+    Allow explicit disable of libcheck at configure time
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit fc8ff35652d677c88c14d588e36136f04d736226
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Fri May 20 11:16:46 2016 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 3460b7c7bb53f81c4901dee356bf44b82f1208d9
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Fri May 20 16:22:54 2016 +0200
+
+    tests: Fix compilation due to wrong formats
+    
+    On a 64-bit system, with gcc 6.0:
+    format ‘%lld’ expects argument of type ‘long long int’, but argument 4
+    has type ‘gint64 {aka long int}’
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=766721
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit eafa2c75d06c90b85ec355fe58b6db1ac33d189a
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sat Feb 20 08:43:59 2016 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 684f030cbde8d81d73855ec8203c5da65d5dd9d9
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Feb 17 22:57:34 2016 -0500
+
+    Move g_object_unref of server inside conditional
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 9c0ec1ba49fd4e9a7fd190fcf73d8c0204685622
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Feb 17 22:54:45 2016 -0500
+
+    Remove extra g_object_unref in dacp-share.c
+    
+    See also https://bugzilla.gnome.org/show_bug.cgi?id=762129.
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 1a35c569af1b5052a8fcc712227489547c2c768d
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Feb 17 22:13:39 2016 -0500
+
+    Initialize the share_bitwise_t share member (thanks Sebastien Bacher)
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 360667f90c5dff9130fa46de26247853dcefb74f
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Feb 7 20:53:22 2016 -0500
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 5625a86de4d17c0c38f420376e3b802183edbf1b
+Author: Sam Thursfield <sam@afuera.me.uk>
+Date:   Sun Feb 7 22:55:48 2016 +0000
+
+    Use soup_session_new() instead of deprecated soup_session_new_async()
+    
+    The SoupSession class now handles async and sync communications. Since
+    we already call soup_session_queue_message() (which sends the message
+    asynchronously) there are no other changes needed.
+
+commit f71cbdaa12d1d1c7069b46b18b0be88320e409a6
+Author: Sam Thursfield <sam@afuera.me.uk>
+Date:   Sun Feb 7 22:52:44 2016 +0000
+
+    Always set base URI path
+    
+    A SoupURI is considered invalid if the path is NULL. Set the path of the
+    base URI to an empty string, instead.
+    
+    This fixes a bunch of these warnings:
+    
+        (rhythmbox:32182): libsoup-WARNING **: (soup-uri.c:248):soup_uri_new_with_base: runtime check failed: (SOUP_URI_IS_VALID (base))
+
+commit f6a4a648c5b1faf835c634d28289b6adfc5673b7
+Author: Sam Thursfield <sam@afuera.me.uk>
+Date:   Sun Feb 7 22:43:13 2016 +0000
+
+    Use new SoupServer API to create DMAPShare server.
+    
+    This old API is deprecated, and with the new API we can report the
+    actual error message if we hit an error.
+
+commit 4d0ae4143d68a3794da21b0e3b9a2ef0f82b6af0
+Author: Sam Thursfield <sam@afuera.me.uk>
+Date:   Sun Feb 7 21:42:14 2016 +0000
+
+    Require libsoup 2.48.0
+    
+    2.48 was released in September 2014, so should be in most distros by
+    now.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=761690
+
+commit c9ee2983f37890234551068d92141aed0776fcde
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Oct 25 21:36:37 2015 -0400
+
+    Add to dmap-mdns-browser-dnssd.c the ability to lookup host name using mDNS
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit bc7768d0b65e5e3fce0193e8c6a2ab3c4d54009b
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Oct 22 08:29:54 2015 -0400
+
+    Fix compile error
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 94b2d9d6be63fce7266f6e1b176b879d3b08918e
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Thu Oct 22 07:54:36 2015 -0400
+
+    First pass cleaning up dmap-mdns-browser-dnssd.c
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 608f0b71b4c6adb78df336478411a65f3fefd304
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Oct 18 23:18:09 2015 -0400
+
+    dns-sd browser: extract name out of, e.g., Foo\032Bar._daap._tcp.local
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 77cdb2422d53312f24eeeab419aff3e5f9377230
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Oct 18 21:33:21 2015 -0400
+
+    Set GError when DNSServiceBrowse fails
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 624a76057e9756fb3a0e0d61d2e76842671be7b0
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Oct 18 18:49:59 2015 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 44affe39bf8299305788d33e26481ee71c1961db
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun Oct 18 15:33:37 2015 -0400
+
+    Small fix for dmap_mdns_browser_start
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit a9ef8ed231804a9ad080d8f9ad42bc46aef171cd
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun May 31 21:05:46 2015 -0400
+
+    Bump version number
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 644c4ff28ccc0b4c5767cc443bf6ca7d46f463ea
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun May 31 21:02:34 2015 -0400
+
+    Update some Vala-related files
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit 3dbaeefc953e8fe8e8e1f3d47cdd75f72ae2ae9e
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun May 31 21:00:51 2015 -0400
+
+    Fix two errors identified by Coverity (GNOME bug #749886)
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit a946972efad22392f5dcb7bb8656f024e20bc988
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Sun May 31 20:45:42 2015 -0400
+
+    Update libdmapsharing-3.0-docs.xml
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
+commit dc76393732b65992831dbbb9cd9813cc23366399
+Author: W. Michael Petullo <mike@flyn.org>
+Date:   Wed Feb 11 22:01:36 2015 -0500
+
+    Use --pkg gio-2.0, not --pkg glib-2.0 for Vala (thanks Ryan Lortie)
+    
+    Signed-off-by: W. Michael Petullo <mike@flyn.org>
+
 commit c479d652cb930bb6a5c7fdc59cd079dd5c4cc3f7
 Author: W. Michael Petullo <mike@flyn.org>
 Date:   Sat Feb 7 20:45:04 2015 -0500
