@@ -1,6 +1,6 @@
 Name: libdmapsharing
 Version: 2.9.16
-Release: 2%{?dist}
+Release: 4%{?dist}
 License: LGPLv2+
 Source: http://www.flyn.org/projects/libdmapsharing/%{name}-%{version}.tar.gz
 URL: http://www.flyn.org/projects/libdmapsharing/
@@ -65,6 +65,12 @@ rm -f ${RPM_BUILD_ROOT}%{_libdir}/libdmapsharing-3.0.la
 %postun -p /sbin/ldconfig
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.9.16-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.9.16-3
+- Mass rebuild 2013-12-27
+
 * Wed Nov 06 2013 Bastien Nocera <bnocera@redhat.com> 2.9.16-2
 - Add upstream patches
 Resolves: #1024020, #1023528
